@@ -2035,7 +2035,7 @@ This means that you can't accidentally access
 methods or properties that the class implements
 in addition to its protocol conformance.
 
-## Manipulação de erros
+## Tratamento de erros
 
 Você representa erros usando qualquer tipo que adote o protocolo `Error`.
 
@@ -2080,7 +2080,7 @@ enum PrinterError: Error {
 }
 
 Use `throw` para lançar um erro
-e `throws` para marcar uma função que pode gerar um erro.
+e `throws` para marcar uma função que pode lançar um erro.
 Se você lançar um erro em uma função,
 a função retorna imediatamente e o código que chamou a função
 trata o erro.
@@ -2111,7 +2111,7 @@ func send(job: Int, toPrinter printerName: String) throws -> String {
 Existem várias maneiras de lidar com erros.
 Uma maneira é usar `do`-`catch`.
 Dentro do bloco `do`,
-você marca o código que pode gerar um erro escrevendo `try` na frente dele.
+você marca o código que pode lançar um erro escrevendo `try` na frente dele.
 Dentro do bloco `catch`,
 o erro recebe automaticamente o nome `error`
 a menos que você dê um nome diferente.
@@ -2141,8 +2141,8 @@ do {
   ```
 }
 
-> Experiência: Altere o nome da impressora para `"Never Has Toner"`,
-> para que a função `send(job:toPrinter:)` gere um erro.
+> Experiência: Altere o nome da impressora (printerName) para "Never Has Toner",
+> para que a função `send(job:toPrinter:)` lance um erro.
 
 @Comment {
   Assertion tests the change that the Experiment box instructs you to make.
@@ -2237,8 +2237,8 @@ let printerFailure = try? send(job: 1885, toPrinter: "Never Has Toner")
 
 Use `defer` para escrever um bloco de código
 que é executado depois de todos os outros códigos na função,
-pouco antes de a função retornar.
-O código é executado independentemente de a função gerar um erro.
+pouco antes da função retornar.
+O código é executado independentemente da função gerar um erro.
 Você pode usar `defer` para escrever o código de configuração e limpeza um ao lado do outro,
 mesmo que eles precisem ser executados em momentos diferentes.
 
