@@ -1763,7 +1763,7 @@ let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 
 ## Concorrência
 
-Use _async_ para marcar uma função que é executada de forma assíncrona.
+Use 'async para marcar uma função que é executada de forma assíncrona.
 
 ```swift
 func fetchUserID(from server: String) async -> Int {
@@ -1788,7 +1788,7 @@ func fetchUserID(from server: String) async -> Int {
   ```
 }
 
-Você marca uma chamada para uma função assíncrona escrevendo _await_ na frente dela.
+Você marca uma chamada para uma função assíncrona escrevendo 'await na frente dela.
 
 ```swift
 func fetchUsername(from server: String) async -> String {
@@ -1815,9 +1815,9 @@ func fetchUsername(from server: String) async -> String {
   ```
 }
 
-Use _async let_ para chamar uma função assíncrona,
-deixando-o rodar em paralelo com outro código assíncrono.
-Quando você usar o valor que ele retorna, escreva _await_.
+Use 'async let' para chamar uma função assíncrona,
+deixando-a rodar em paralelo com outro código assíncrono.
+Quando você usar o valor que ela retorna, escreva 'await'.
 
 ```swift
 func connectUser(to server: String) async {
@@ -1842,7 +1842,7 @@ func connectUser(to server: String) async {
   ```
 }
 
-Use _Task_ para chamar funções assíncronas de código síncrono,
+Use 'Task para chamar funções assíncronas de código síncrono,
 sem esperar que eles retornem.
 
 ```swift
