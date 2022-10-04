@@ -50,14 +50,14 @@ and its two operands are the values `1` and `2`.
 
 ## Assignment Operator
 
-The *assignment operator* (`a = b`)
-initializes or updates the value of `a` with the value of `b`:
+O *operador de atribuição* (`a = b`)
+inicializa ou atualiza o valor de `a` com o valor de `b`:
 
 ```swift
 let b = 10
 var a = 5
 a = b
-// a is now equal to 10
+// a agora é igual a 10
 ```
 
 
@@ -73,12 +73,12 @@ a = b
   ```
 }
 
-If the right side of the assignment is a tuple with multiple values,
-its elements can be decomposed into multiple constants or variables at once:
+Se o lado direito da atribuição é uma tupla com multipos valores,
+os elementos podem se decompor em multiplas constantes ou variáveis de uma só vez:
 
 ```swift
 let (x, y) = (1, 2)
-// x is equal to 1, and y is equal to 2
+// x é igual a 1, e y é igual a 2
 ```
 
 
@@ -109,13 +109,17 @@ let (x, y) = (1, 2)
   rather than from the pattern.
 }
 
+Ao contrário do operador de atribuição em C e objective-C, 
+em Swift o operador de atribuição não retorna um valor.
+A declaração a seguir não é válida:
+
 Unlike the assignment operator in C and Objective-C,
 the assignment operator in Swift doesn't itself return a value.
 The following statement isn't valid:
 
 ```swift
 if x = y {
-   // This isn't valid, because x = y doesn't return a value.
+   // Isso não é válido, pois x = y não retorna um valor.
 }
 ```
 
@@ -136,10 +140,9 @@ if x = y {
   ```
 }
 
-This feature prevents the assignment operator (`=`) from being used by accident
-when the equal to operator (`==`) is actually intended.
-By making `if x = y` invalid,
-Swift helps you to avoid these kinds of errors in your code.
+Esta característica previne que o operador de atribuição (`=`) seja usado acidentalmente
+quando o operador de igualdade (`==`) é realmente a intenção.
+Ao tornar `if x = y` inválido, Swift ajuda você a evitar esse tipo de erro no seu código.
 
 @Comment {
   TODO: Should we mention that x = y = z is also not valid?
