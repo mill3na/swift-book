@@ -157,10 +157,10 @@ Swift supports the four standard *arithmetic operators* for all number types:
 - Divisão (`/`)
 
 ```swift
-1 + 2       // igual à 3
-5 - 3       // igual à 2
-2 * 3       // igual à 6
-10.0 / 2.5  // igual à 4.0
+1 + 2       // igual a 3
+5 - 3       // igual a 2
+2 * 3       // igual a 6
+10.0 / 2.5  // igual a 4.0
 ```
 
 
@@ -191,7 +191,7 @@ Você pode optar por avaliar o comportamento de estouro usando os operadores de 
 O operador de adição também é suportado para concatenação de `String`:
 
 ```swift
-"olá, " + "mundo"  // é igual à "olá, mundo"
+"olá, " + "mundo"  // é igual a "olá, mundo"
 ```
 
 
