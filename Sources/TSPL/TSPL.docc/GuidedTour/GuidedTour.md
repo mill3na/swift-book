@@ -31,9 +31,9 @@ print("Hello, world!")
 Se você já escreveu códigos em C ou Objective-C,
 esta sitaxe parecerá familiar para você ---
 em Swift, esta linha de código é um programa completo.
-Você não precisa importar uma biblioteca a parte para uma funcionalidade como entrada e saída ou manipulação de uma cadeia de caracteres.
+Você não precisa importar uma biblioteca à parte para uma funcionalidade como entrada e saída ou manipulação de uma cadeia de caracteres.
 O código escrito em um escopo global é usado como ponto inicial para o programa, então você não precisa de uma função `main()`.
-Você também não precisa escrever ponto e virgula no final de cada declaração.
+Você também não precisa escrever ponto e vírgula no final de cada declaração.
 
 Este guia lhe dá informações suficientes
 para começar a escrever códigos em Swift, mostrando como realizar uma variedade de tarefas de programação.
