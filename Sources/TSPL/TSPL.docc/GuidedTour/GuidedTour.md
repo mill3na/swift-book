@@ -1761,9 +1761,9 @@ let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 > a full deck of cards,
 > with one card of each combination of rank and suit.
 
-## Concurrency
+## Concorrência
 
-Use `async` to mark a function that runs asynchronously.
+Use _async_ para marcar uma função que é executada de forma assíncrona.
 
 ```swift
 func fetchUserID(from server: String) async -> Int {
@@ -1788,7 +1788,7 @@ func fetchUserID(from server: String) async -> Int {
   ```
 }
 
-You mark a call to an asynchronous function by writing `await` in front of it.
+Você marca uma chamada para uma função assíncrona escrevendo _await_ na frente dela.
 
 ```swift
 func fetchUsername(from server: String) async -> String {
@@ -1815,9 +1815,9 @@ func fetchUsername(from server: String) async -> String {
   ```
 }
 
-Use `async let` to call an asynchronous function,
-letting it run in parallel with other asynchronous code.
-When you use the value it returns, write `await`.
+Use _async let_ para chamar uma função assíncrona,
+deixando-o rodar em paralelo com outro código assíncrono.
+Quando você usar o valor que ele retorna, escreva _await_.
 
 ```swift
 func connectUser(to server: String) async {
@@ -1842,8 +1842,8 @@ func connectUser(to server: String) async {
   ```
 }
 
-Use `Task` to call asynchronous functions from synchronous code,
-without waiting for them to return.
+Use _Task_ para chamar funções assíncronas de código síncrono,
+sem esperar que eles retornem.
 
 ```swift
 Task {
