@@ -148,18 +148,19 @@ Swift helps you to avoid these kinds of errors in your code.
 
 ## Arithmetic Operators
 
+Swift suport os 4 *operadores aritméticos* padrões para todos os tipos de números: 
 Swift supports the four standard *arithmetic operators* for all number types:
 
-- Addition (`+`)
-- Subtraction (`-`)
-- Multiplication (`*`)
-- Division (`/`)
+- Adição (`+`)
+- Subtração (`-`)
+- Multiplicação (`*`)
+- Divisão (`/`)
 
 ```swift
-1 + 2       // equals 3
-5 - 3       // equals 2
-2 * 3       // equals 6
-10.0 / 2.5  // equals 4.0
+1 + 2       // igual à 3
+5 - 3       // igual à 2
+2 * 3       // igual à 6
+10.0 / 2.5  // igual à 4.0
 ```
 
 
@@ -182,15 +183,15 @@ Swift supports the four standard *arithmetic operators* for all number types:
   ```
 }
 
-Unlike the arithmetic operators in C and Objective-C,
-the Swift arithmetic operators don't allow values to overflow by default.
-You can opt in to value overflow behavior by using Swift's overflow operators
-(such as `a &+ b`). See <doc:AdvancedOperators#Overflow-Operators>.
+Diferente dos operadores aritméticos em C e Objective-C,
+os de Swift não permitem valores que os valores ultrapasse o tamanho padrão.
+Você pode optar por avaliar o comportamento de estouro usando os operadores de overflow do Swift
+(como por exemplo `a &+ b`). Veja <doc:AdvancedOperators#Overflow-Operators>.
 
-The addition operator is also supported for `String` concatenation:
+O operador de adição também é suportado para concatenação de `String`:
 
 ```swift
-"hello, " + "world"  // equals "hello, world"
+"olá, " + "mundo"  // é igual à "olá, mundo"
 ```
 
 
