@@ -1,22 +1,20 @@
 
 
-# A Swift Tour
+# Um guia de Swift
 
 
 
-Tradition suggests that the first program in a new language
-should print the words “Hello, world!” on the screen.
-In Swift, this can be done in a single line:
+A tradição sugere que o primeiro programa em uma nova linguagem  deve imprimir a frase "Olá, mundo!" na tela.
+Em Swift, esta pode ser feita em uma simples linha:
 
 @Comment {
-  K&R uses “hello, world”.
-  It seems worth breaking with tradition to use proper casing.
+  K&R usa “olá, mundo”.
+  Parece valer a pena romper com a tradição para usar uma formatação apropriada.
 }
 
 ```swift
-print("Hello, world!")
-// Prints "Hello, world!"
-```
+print("Olá, mundo!")
+// imprime "Olá, mundo!"```
 
 
 @Comment {
