@@ -1867,7 +1867,7 @@ Task {
 
 ## Protocolos e Extensões
 
-Use _protocol_ para declarar um protocolo.
+Use 'protocol para declarar um protocolo.
 
 ```swift
 protocol ExampleProtocol {
@@ -1960,10 +1960,10 @@ let bDescription = b.simpleDescription
 
 
 Observe o uso da palavra-chave `mutating`
-na declaração de `SimpleStructure`
+na declaração `SimpleStructure`
 para marcar um método que modifica a estrutura.
-A declaração de `SimpleClass` não precisa
-qualquer um de seus métodos marcados como mutantes
+A declaração `SimpleClass` não precisa
+qualquer um de seus métodos marcados como 'mutating'
 porque os métodos em uma classe sempre podem modificar a classe.
 
 Use `extension` para adicionar funcionalidade a um tipo existente,
@@ -2008,10 +2008,10 @@ print(7.simpleDescription)
 
 Você pode usar um nome de protocolo como qualquer outro tipo nomeado ---
 por exemplo, para criar uma coleção de objetos
-que tem vários tipos
+que tem vários tipos diferentes,
 mas que todos estão em conformidade com um único protocolo.
 Quando você trabalha com valores cujo tipo é um tipo de protocolo,
-métodos fora da definição de protocolo não estão disponíveis.
+métodos que não estão na definição do protocolo não estarão disponíveis.
 
 ```swift
 let protocolValue: ExampleProtocol = a
