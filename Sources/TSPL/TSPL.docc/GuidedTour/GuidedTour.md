@@ -1849,7 +1849,7 @@ sem esperar que eles retornem.
 Task {
     await connectUser(to: "primary")
 }
-// Prints "Hello Guest, user ID 97"
+// Printar "Hello Guest, user ID 97"
 ```
 
 
