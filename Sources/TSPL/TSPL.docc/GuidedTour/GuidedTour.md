@@ -28,23 +28,17 @@ print("Hello, world!")
   ```
 }
 
-If you have written code in C or Objective-C,
-this syntax looks familiar to you ---
-in Swift, this line of code is a complete program.
-You don't need to import a separate library for functionality like
-input/output or string handling.
-Code written at global scope is used
-as the entry point for the program,
-so you don't need a `main()` function.
-You also don't need to write semicolons
-at the end of every statement.
+Se você já escreveu códigos em C ou Objective-C,
+esta sitaxe parecerá familiar para você ---
+em Swift, esta linha de código é um programa completo.
+Você não precisa importar uma biblioteca a parte para uma funcionalidade como entrada e saída ou manipulação de uma cadeia de caracteres.
+O código escrito em um escopo global é usado como ponto inicial para o programa, então você não precisa de uma função `main()`.
+Você também não precisa escrever ponto e virgula no final de cada declaração.
 
-This tour gives you enough information
-to start writing code in Swift
-by showing you how to accomplish a variety of programming tasks.
-Don’t worry if you don’t understand something ---
-everything introduced in this tour
-is explained in detail in the rest of this book.
+Este guia lhe dá informações suficientes
+para começar a escrever códigos em Swift, mostrando como realizar uma variedade de tarefas de programação.
+Não se preocupe se você não entender alguma coisa ---
+tudo o que for introduzido neste guia será explicado em detalhes neste livro.
 
 ## Simple Values
 
