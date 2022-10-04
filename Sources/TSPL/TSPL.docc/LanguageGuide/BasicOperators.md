@@ -148,7 +148,7 @@ Swift helps you to avoid these kinds of errors in your code.
 
 ## Arithmetic Operators
 
-Swift suport os 4 *operadores aritméticos* padrões para todos os tipos de números: 
+Swift suporta os 4 *operadores aritméticos* padrões para todos os tipos de números: 
 Swift supports the four standard *arithmetic operators* for all number types:
 
 - Adição (`+`)
