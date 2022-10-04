@@ -1763,7 +1763,7 @@ let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 
 ## Concorrência
 
-Use 'async para marcar uma função que é executada de forma assíncrona.
+Use 'async' para marcar uma função que é executada de forma assíncrona.
 
 ```swift
 func fetchUserID(from server: String) async -> Int {
@@ -1842,7 +1842,7 @@ func connectUser(to server: String) async {
   ```
 }
 
-Use 'Task para chamar funções assíncronas de código síncrono,
+Use 'Task' para chamar funções assíncronas de código síncrono,
 sem esperar que eles retornem.
 
 ```swift
