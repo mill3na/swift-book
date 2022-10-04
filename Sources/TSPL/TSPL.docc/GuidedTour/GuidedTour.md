@@ -1865,9 +1865,9 @@ Task {
   ```
 }
 
-## Protocols and Extensions
+## Protocolos e Extensões
 
-Use `protocol` to declare a protocol.
+Use _protocol_ para declarar um protocolo.
 
 ```swift
 protocol ExampleProtocol {
@@ -1888,7 +1888,7 @@ protocol ExampleProtocol {
   ```
 }
 
-Classes, enumerations, and structures can all adopt protocols.
+Classes, enumerações e estruturas podem adotar protocolos.
 
 @Comment {
   REFERENCE
@@ -1953,23 +1953,24 @@ let bDescription = b.simpleDescription
   ```
 }
 
-> Experiment: Add another requirement to `ExampleProtocol`.
-> What changes do you need to make
-> to `SimpleClass` and `SimpleStructure`
-> so that they still conform to the protocol?
+> Experimento: Adicione outro requisito ao `ExampleProtocol`.
+> Que mudanças você precisa fazer
+> para `SimpleClass` e `SimpleStructure`
+> para que ainda estejam em conformidade com o protocolo?
 
-Notice the use of the `mutating` keyword
-in the declaration of `SimpleStructure`
-to mark a method that modifies the structure.
-The declaration of `SimpleClass` doesn't need
-any of its methods marked as mutating
-because methods on a class can always modify the class.
 
-Use `extension` to add functionality to an existing type,
-such as new methods and computed properties.
-You can use an extension to add protocol conformance
-to a type that's declared elsewhere,
-or even to a type that you imported from a library or framework.
+Observe o uso da palavra-chave `mutating`
+na declaração de `SimpleStructure`
+para marcar um método que modifica a estrutura.
+A declaração de `SimpleClass` não precisa
+qualquer um de seus métodos marcados como mutantes
+porque os métodos em uma classe sempre podem modificar a classe.
+
+Use `extension` para adicionar funcionalidade a um tipo existente,
+como novos métodos e propriedades computadas.
+Você pode usar uma extensão para adicionar conformidade de protocolo
+para um tipo declarado em outro lugar,
+ou até mesmo para um tipo que você importou de uma biblioteca ou _framework_.
 
 ```swift
 extension Int: ExampleProtocol {
@@ -2002,15 +2003,15 @@ print(7.simpleDescription)
   ```
 }
 
-> Experiment: Write an extension for the `Double` type
-> that adds an `absoluteValue` property.
+> Experiência: Escreva uma extensão para o tipo `Double`
+> que adiciona uma propriedade `absoluteValue`.
 
-You can use a protocol name just like any other named type ---
-for example, to create a collection of objects
-that have different types
-but that all conform to a single protocol.
-When you work with values whose type is a protocol type,
-methods outside the protocol definition aren't available.
+Você pode usar um nome de protocolo como qualquer outro tipo nomeado ---
+por exemplo, para criar uma coleção de objetos
+que tem vários tipos
+mas que todos estão em conformidade com um único protocolo.
+Quando você trabalha com valores cujo tipo é um tipo de protocolo,
+métodos fora da definição de protocolo não estão disponíveis.
 
 ```swift
 let protocolValue: ExampleProtocol = a
@@ -2031,12 +2032,12 @@ print(protocolValue.simpleDescription)
   ```
 }
 
-Even though the variable `protocolValue`
-has a runtime type of `SimpleClass`,
-the compiler treats it as the given type of `ExampleProtocol`.
-This means that you can't accidentally access
-methods or properties that the class implements
-in addition to its protocol conformance.
+Mesmo que a variável `protocolValue`
+tem um tipo de tempo de execução de `SimpleClass`,
+o compilador o trata como o tipo dado de `ExampleProtocol`.
+Isso significa que você não pode acessar acidentalmente
+métodos ou propriedades que a classe implementa
+além de sua conformidade com o protocolo.
 
 ## Error Handling
 
