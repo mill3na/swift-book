@@ -1,17 +1,19 @@
 
 
-# Nested Types
+# Tipos Aninhados
 
-Enumerations are often created to support a specific class or structure's functionality.
-Similarly, it can be convenient to define utility classes and structures
-purely for use within the context of a more complex type.
-To accomplish this, Swift enables you to define *nested types*,
-whereby you nest supporting enumerations, classes, and structures
-within the definition of the type they support.
+Enumerações são frequentemente criadas para dar suporte a uma funcionalidade especifica de uma classe ou estrutura.
+Similarmente, pode ser conveniente definir classes e estruturas de utilidade
+puramente para o uso dentro de um contexto de um tipo mais complexo.
+Para fazer isso, o Swift permite que você defina *tipos aninhados*,
+nos quais você aninha enumerações, classes e estruturas de suporte
+dentro da definição do tipo que elas suportam.
 
-To nest a type within another type,
-write its definition within the outer braces of the type it supports.
-Types can be nested to as many levels as are required.
+## Overview
+
+Para aninhar um tipo dentro de outro tipo,
+escreva sua definição dentro das chaves externas do tipo que ele suporta.
+Os tipos podem ser aninhados em até quantos níveis forem necessários.
 
 ## Nested Types in Action
 
