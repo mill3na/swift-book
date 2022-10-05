@@ -1130,26 +1130,26 @@ if enteredDoorCode && passedRetinaScan {
   ```
 }
 
-### Logical OR Operator
+### Operador Lógico OR
 
-The *logical OR operator*
-(`a || b`) is an infix operator made from two adjacent pipe characters.
-You use it to create logical expressions in which
-only *one* of the two values has to be `true`
-for the overall expression to be `true`.
+O *Operador Lógico OR*
+(`a || b`) é um operador infixo feito de dois caracteres pipe adjacentes.
+Você o usa para criar expressões lógicas nas quais
+basta *um* dos dois valores deve ser `true`
+para que a expressão geral seja `true`.
 
-Like the Logical AND operator above,
-the Logical OR operator uses short-circuit evaluation to consider its expressions.
-If the left side of a Logical OR expression is `true`,
-the right side isn't evaluated,
-because it can't change the outcome of the overall expression.
+Como o operador lógico AND acima,
+o operador lógico OR usa avaliação de curto-circuito para considerar suas expressões.
+Se o lado esquerdo de uma expressão lógica OR for "true",
+o lado direito não é avaliado,
+porque não pode alterar o resultado da expressão geral.
 
-In the example below,
-the first `Bool` value (`hasDoorKey`) is `false`,
-but the second value (`knowsOverridePassword`) is `true`.
-Because one value is `true`,
-the overall expression also evaluates to `true`,
-and access is allowed:
+No exemplo abaixo,
+o primeiro valor `Bool` (`hasDoorKey`) é `false`,
+mas o segundo valor (`knowsOverridePassword`) é `true`.
+Como um valor é `true`,
+a expressão geral também é avaliada como `true`,
+e o acesso é permitido:
 
 ```swift
 let hasDoorKey = false
