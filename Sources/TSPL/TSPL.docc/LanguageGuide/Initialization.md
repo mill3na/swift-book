@@ -35,11 +35,11 @@ These actions are described in the following sections.
 > the value of that property is set directly,
 > without calling any property observers.
 
-### Initializers
+### Inicializadores
 
-*Initializers* are called to create a new instance of a particular type.
-In its simplest form, an initializer is like an instance method with no parameters,
-written using the `init` keyword:
+*Inicializadores* são chamados para criar uma nova instância de um tipo específico.
+Em sua forma mais simples, um inicializador é como um método de instância sem parâmetros,
+escrito usando a palavra-chave `init`:
 
 ```swift
 init() {
@@ -60,10 +60,10 @@ init() {
   ```
 }
 
-The example below defines a new structure called `Fahrenheit`
-to store temperatures expressed in the Fahrenheit scale.
-The `Fahrenheit` structure has one stored property,
-`temperature`, which is of type `Double`:
+O exemplo abaixo define uma nova estrutura chamada `Fahrenheit`
+para armazenar temperaturas expressas na escala Fahrenheit.
+A estrutura `Fahrenheit` tem uma propriedade armazenada,
+`temperature`, que é do tipo `Double`:
 
 ```swift
 struct Fahrenheit {
@@ -94,9 +94,9 @@ print("The default temperature is \(f.temperature)° Fahrenheit")
   ```
 }
 
-The structure defines a single initializer, `init`, with no parameters,
-which initializes the stored temperature with a value of `32.0`
-(the freezing point of water in degrees Fahrenheit).
+A estrutura define um único inicializador, `init`, sem parâmetros,
+que inicializa a temperatura armazenada com um valor de `32.0`
+(o ponto de congelamento da água em graus Fahrenheit).
 
 ### Default Property Values
 
