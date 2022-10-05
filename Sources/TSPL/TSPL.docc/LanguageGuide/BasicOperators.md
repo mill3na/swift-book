@@ -1234,11 +1234,11 @@ explicitar sua intenção:
 
 ```swift
 if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword {
-   print("Bem-Vindo!")
+   print("Welcome!")
 } else {
-   print("ACESSO NEGADO")
+   print("ACCESS DENIED")
 }
-// Prints "Bem-Vindo!"
+// Prints "Welcome!"
 ```
 
 
@@ -1247,11 +1247,11 @@ if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword 
   
   ```swifttest
   -> if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword {
-        print("Bem-Vindo!")
+        print("Welcome!")
      } else {
-        print("ACESSO NEGADO")
+        print("ACCESS DENIED")
      }
-  <- Bem-Vindo!
+  <- ACCESS DENIED!
   ```
 }
 
