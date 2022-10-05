@@ -4,68 +4,68 @@
   @DisplayName("The Swift Programming Language")
 }
 
-## Topics
+## Tópicos
 
-### Guided Tour
+### Tour
 
 - <doc:AboutSwift>
 - <doc:Compatibility>
 - <doc:GuidedTour>
 
-### Language Guide
+### Guia da linguagem
 
-- <doc:TheBasics>
-- <doc:BasicOperators>
-- <doc:StringsAndCharacters>
-- <doc:CollectionTypes>
-- <doc:ControlFlow>
-- <doc:Functions>
+- <doc:OBásico>
+- <doc:OperadoresBásicos>
+- <doc:StringsECaracteres>
+- <doc:TiposDeColeções>
+- <doc:ControleDeFluxo>
+- <doc:Funções>
 - <doc:Closures>
-- <doc:Enumerations>
-- <doc:ClassesAndStructures>
-- <doc:Properties>
-- <doc:Methods>
+- <doc:Enumeradores>
+- <doc:ClassesEStructs>
+- <doc:Propriedades>
+- <doc:Métodos>
 - <doc:Subscripts>
-- <doc:Inheritance>
-- <doc:Initialization>
-- <doc:Deinitialization>
-- <doc:OptionalChaining>
-- <doc:ErrorHandling>
-- <doc:Concurrency>
-- <doc:TypeCasting>
-- <doc:NestedTypes>
+- <doc:Herança>
+- <doc:Inicialização>
+- <doc:Desinicialização>
+- <doc:Encadeamento>
+- <doc:LidandoComErros>
+- <doc:Simultaneidade>
+- <doc:TipodDeCasting>
+- <doc:TiposAninhados>
 - <doc:Extensions>
-- <doc:Protocols>
-- <doc:Generics>
-- <doc:OpaqueTypes>
-- <doc:AutomaticReferenceCounting>
-- <doc:MemorySafety>
-- <doc:AccessControl>
-- <doc:AdvancedOperators>
+- <doc:Protocolos>
+- <doc:Genéricos>
+- <doc:TiposOpacos>
+- <doc:ContagemAutomáticaDeReferências>
+- <doc:SegurançaDaMemória>
+- <doc:ControleDeAcesso>
+- <doc:OperadoresAvançados>
 
-### Language Reference
+### Referências da linguagem
 
-- <doc:AboutTheLanguageReference>
-- <doc:LexicalStructure>
-- <doc:Types>
-- <doc:Expressions>
+- <doc:SobreAReferênciaDaLinguagem>
+- <doc:EstruturaLéxica>
+- <doc:Tipos>
+- <doc:Expressões>
 - <doc:Statements>
-- <doc:Declarations>
-- <doc:Attributes>
-- <doc:Patterns>
-- <doc:GenericParametersAndArguments>
+- <doc:Declarações>
+- <doc:Atributos>
+- <doc:Padrões>
+- <doc:ParâmetrosEArgumentosGenéricos>
 
-### Revision History
+### Histórico de Revisão
 
-- <doc:RevisionHistory>
+- <doc:HistóricoDeRevisão>
 
 
 @Comment {
-This source file is part of the Swift.org open source project
+Este arquivo de origem faz parte do projeto de código aberto Swift.org
 
-Copyright (c) 2014 - 2022 Apple Inc. and the Swift project authors
-Licensed under Apache License v2.0 with Runtime Library Exception
+Copyright (c) 2014 - 2022 Apple Inc. e os autores do projeto Swift
+Licenciado pela Apache License v2.0 com Runtime Library Exception
 
-See https://swift.org/LICENSE.txt for license information
-See https://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+Consulte https://swift.org/LICENSE.txt para obter informações sobre a licença
+Consulte https://swift.org/CONTRIBUTORS.txt para obter a lista de autores do projeto Swift
 }
