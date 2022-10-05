@@ -1107,11 +1107,11 @@ e só permite acesso se ambos os valores forem `true`:
 let enteredDoorCode = true
 let passedRetinaScan = false
 if enteredDoorCode && passedRetinaScan {
-   print("Bem-Vindo!")
+   print("Welcome!")
 } else {
-   print("ACESSO NEGADO")
+   print("ACESS DENIED")
 }
-// Prints "ACESSO NEGADO"
+// Prints "ACESS DENIED"
 ```
 
 
