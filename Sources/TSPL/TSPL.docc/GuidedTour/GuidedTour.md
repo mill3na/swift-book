@@ -1274,10 +1274,11 @@ print(fridgeIsOpen)
 
 
 
-## Generics
+## Genéricos
 
-Write a name inside angle brackets
-to make a generic function or type.
+
+Escreva o nome dentro de "<" e ">"
+para fazer uma função ou tipo genérico.
 
 
 
@@ -1295,8 +1296,8 @@ makeArray(repeating: "knock", numberOfTimes: 4)
 
 
 
-You can make generic forms of functions and methods,
-as well as classes, enumerations, and structures.
+Você pode fazer formas genéricas de métodos e funções,
+assim como classes, enumerações e estruturas.
 
 ```swift
 // Reimplement the Swift standard library's optional type
@@ -1311,12 +1312,13 @@ possibleInteger = .some(100)
 
 
 
-Use `where` right before the body
-to specify a list of requirements ---
-for example,
-to require the type to implement a protocol,
-to require two types to be the same,
-or to require a class to have a particular superclass.
+Use _where_ logo antes do corpo da função
+para especificar uma lista de requisitos ---
+por exemplo,
+para requisitar o tipo que implementa um protocolo,
+para requisitar que dois tipos sejam os mesmos
+ou para requerir que uma classe tenha uma superclasse específica.
+
 
 ```swift
 func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
@@ -1337,12 +1339,12 @@ anyCommonElements([1, 2, 3], [3])
 
 
 
-> Experiment: Modify the `anyCommonElements(_:_:)` function
-> to make a function that returns an array
-> of the elements that any two sequences have in common.
+> Experimento: Modifique a função `anyCommonElements(_:_:)`
+> para fazer uma função que retorna um _array_
+> dos elementos que tenham duas sequências em comum.
 
-Writing `<T: Equatable>`
-is the same as writing `<T> ... where T: Equatable`.
 
+Escrever `<T: Equatable>`
+é a mesma coisa que escrever `<T> ... where T: Equatable`.
 
 
