@@ -1698,9 +1698,9 @@ let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 > a full deck of cards,
 > with one card of each combination of rank and suit.
 
-## Concurrency
+## Concorrência
 
-Use `async` to mark a function that runs asynchronously.
+Use `async` para marcar uma função que é executada de forma assíncrona.
 
 ```swift
 func fetchUserID(from server: String) async -> Int {
@@ -1711,21 +1711,7 @@ func fetchUserID(from server: String) async -> Int {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func fetchUserID(from server: String) async -> Int {
-         if server == "primary" {
-             return 97
-         }
-         return 501
-     }
-  ```
-}
-
-You mark a call to an asynchronous function by writing `await` in front of it.
+Você marca uma chamada para uma função assíncrona escrevendo `await` na frente dela.
 
 ```swift
 func fetchUsername(from server: String) async -> String {
@@ -1737,24 +1723,9 @@ func fetchUsername(from server: String) async -> String {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func fetchUsername(from server: String) async -> String {
-         let userID = await fetchUserID(from: server)
-         if userID == 501 {
-             return "John Appleseed"
-         }
-         return "Guest"
-     }
-  ```
-}
-
-Use `async let` to call an asynchronous function,
-letting it run in parallel with other asynchronous code.
-When you use the value it returns, write `await`.
+Use `async let` para chamar uma função assíncrona,
+deixando-a rodar em paralelo com outro código assíncrono.
+Quando você usar o valor que ela retorna, escreva 'await'.
 
 ```swift
 func connectUser(to server: String) async {
@@ -1765,42 +1736,15 @@ func connectUser(to server: String) async {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func connectUser(to server: String) async {
-         async let userID = fetchUserID(from: server)
-         async let username = fetchUsername(from: server)
-         let greeting = await "Hello \(username), user ID \(userID)"
-         print(greeting)
-     }
-  ```
-}
-
-Use `Task` to call asynchronous functions from synchronous code,
-without waiting for them to return.
+Use `Task` para chamar funções assíncronas de código síncrono,
+sem esperar que eles retornem.
 
 ```swift
 Task {
     await connectUser(to: "primary")
 }
-// Prints "Hello Guest, user ID 97"
+// Printar "Hello Guest, user ID 97"
 ```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> Task {
-         await connectUser(to: "primary")
-     }
-  >> import Darwin; sleep(1)  // Pause for task to run
-  <- Hello Guest, user ID 97
-  ```
-}
 
 ## Protocols and Extensions
 
