@@ -7,24 +7,9 @@
 A tradição sugere que o primeiro programa em uma nova linguagem  deve imprimir a frase "Olá, mundo!" na tela.
 Em Swift, esta pode ser feita em uma simples linha:
 
-@Comment {
-  K&R usa “olá, mundo”.
-  Parece valer a pena romper com a tradição para usar uma formatação apropriada.
-}
-
 ```swift
 print("Olá, mundo!")
 // imprime "Olá, mundo!"```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> print("Hello, world!")
-  <- Hello, world!
-  ```
-}
 
 Se você já escreveu códigos em C ou Objective-C,
 esta sitaxe parecerá familiar para você ---
