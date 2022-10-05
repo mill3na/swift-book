@@ -1,63 +1,58 @@
 
 
-# Basic Operators
+# Operadores básicos
 
-An *operator* is a special symbol or phrase that you use to
-check, change, or combine values.
-For example, the addition operator (`+`) adds two numbers,
-as in `let i = 1 + 2`,
-and the logical AND operator (`&&`) combines two Boolean values,
-as in `if enteredDoorCode && passedRetinaScan`.
+Um operador é um símbolo ou frase que você pode usar para verificar, mudar ou combinar valores.
+Por exemplo, o operador de adição (`+`) soma dois números,
+como em `let i = 1 + 2`,
+e o operador lógico E (*AND* - `&&`) combina dois valores booleanos,
+como em `if enteredDoorCode && passedRetinaScan`.
 
-Swift supports the operators you may already know from languages like C,
-and improves several capabilities to eliminate common coding errors.
-The assignment operator (`=`) doesn't return a value,
-to prevent it from being mistakenly used when
-the equal to operator (`==`) is intended.
-Arithmetic operators (`+`, `-`, `*`, `/`, `%` and so forth)
-detect and disallow value overflow,
-to avoid unexpected results when working with numbers that become larger or smaller
-than the allowed value range of the type that stores them.
-You can opt in to value overflow behavior
-by using Swift's overflow operators,
-as described in <doc:AdvancedOperators#Overflow-Operators>.
+Swift suporta os operadores que você já conhece de linguagens como C,
+e melhora vários recursos para eliminar erros comuns de codificação.
+O operador de atribuição (`=`) não retorna um valor,
+para evitar que seja usado erroneamente quando
+o operador igual a (`==`) é pretendido.
+Operadores aritméticos (`+`, `-`, `*`, `/`, `%` e assim por diante)
+detectam e desabilitam estouros de valor,
+para evitar resultados inesperados quando estamos trabalhando com números que se tornam muito maiores ou muito menores do que o intervalo permitido nos tipos que os armazenam.
+Você pode ativar o comportamento de estouro de valor
+usando os operadores de estouro do Swift,
+conforme descrito em <doc:OperadoresAvançados#Operadores-de-estouro>.
 
-Swift also provides range operators that aren't found in C,
-such as `a..<b` and `a...b`,
-as a shortcut for expressing a range of values.
+Swift também fornece operadores de intervalo que não são encontrados em C,
+como `a..<b` e `a...b`, como um atalho para expressar um intervalo de valores.
+Este capítulo descreve os operadores comuns em Swift.
+<doc:OperadoresAvançados> abrange os operadores avançados do Swift,
+e descreve como definir seus próprios operadores personalizados
+e implementar os operadores padrão para seus próprios tipos personalizados.
 
-This chapter describes the common operators in Swift.
-<doc:AdvancedOperators> covers Swift's advanced operators,
-and describes how to define your own custom operators
-and implement the standard operators for your own custom types.
+## Terminologia
 
-## Terminology
+Os operadores são unários, binários ou ternários:
 
-Operators are unary, binary, or ternary:
+- Operadores **unários** operam em um único alvo (como `-a`).
+  Operadores unários **pré-fixados** aparecem imediatamente antes de seu destino (como `!b`),
+  e operadores unários **pós-fixados** aparecem imediatamente após seu destino (como `c!`).
+- Operadores **binários** operam com dois alvos (como `2 + 3`)
+  e são **infixos** porque aparecem entre seus dois alvos.
+- Operadores **ternários** operam em três alvos.
+  Como C, Swift tem apenas um operador ternário,
+  o operador condicional ternário (`a ? b : c`).
+  
+Os valores que os operadores afetam são **operandos**.
+Na expressão `1 + 2`, o símbolo `+` é um operador infixo
+e seus dois operandos são os valores `1` e `2`.
 
-- *Unary* operators operate on a single target (such as `-a`).
-  Unary *prefix* operators appear immediately before their target (such as `!b`),
-  and unary *postfix* operators appear immediately after their target (such as `c!`).
-- *Binary* operators operate on two targets (such as `2 + 3`)
-  and are *infix* because they appear in between their two targets.
-- *Ternary* operators operate on three targets.
-  Like C, Swift has only one ternary operator,
-  the ternary conditional operator (`a ? b : c`).
-
-The values that operators affect are *operands*.
-In the expression `1 + 2`, the `+` symbol is an infix operator
-and its two operands are the values `1` and `2`.
-
-## Assignment Operator
-
-The *assignment operator* (`a = b`)
-initializes or updates the value of `a` with the value of `b`:
+## Operador de atribuição
+O **operador de atribuição** (`a = b`)
+inicializa ou atualiza o valor de `a` com o valor de `b`:
 
 ```swift
 let b = 10
 var a = 5
 a = b
-// a is now equal to 10
+// 'a' agora é igual a 10
 ```
 
 
@@ -73,12 +68,12 @@ a = b
   ```
 }
 
-If the right side of the assignment is a tuple with multiple values,
-its elements can be decomposed into multiple constants or variables at once:
+Se o lado direito da atribuição for uma tupla com vários valores,
+seus elementos podem ser decompostos em várias constantes ou variáveis de uma só vez:
 
 ```swift
 let (x, y) = (1, 2)
-// x is equal to 1, and y is equal to 2
+// 'x' é igual a 1, e 'y' é igual a 2
 ```
 
 
@@ -101,21 +96,22 @@ let (x, y) = (1, 2)
 }
 
 @Comment {
-  This still allows assignment to variables,
-  even though var patterns have been removed,
-  because it's parsed as a variable-declaration,
-  using the first alternative where (x, y) is a pattern,
-  but `var` comes from the variable-declaration-head
-  rather than from the pattern.
+  Isso ainda permite a atribuição para variáveis,
+  mesmo que os padrões var tenham sido removidos,
+  porque é analisado como uma declaração de variável,
+  usando a primeira alternativa onde (x, y) é um padrão,
+  mas `var` vem da *variable-declaration-head*
+  em vez do padrão.
+  
 }
 
-Unlike the assignment operator in C and Objective-C,
-the assignment operator in Swift doesn't itself return a value.
-The following statement isn't valid:
+Ao contrário do operador de atribuição em C e Objective-C,
+o operador de atribuição em Swift não retorna um valor.
+A seguinte declaração não é válida:
 
 ```swift
 if x = y {
-   // This isn't valid, because x = y doesn't return a value.
+   // Isso não é válido, pois 'x = y' não retorna um valor.
 }
 ```
 
@@ -136,30 +132,31 @@ if x = y {
   ```
 }
 
-This feature prevents the assignment operator (`=`) from being used by accident
-when the equal to operator (`==`) is actually intended.
-By making `if x = y` invalid,
-Swift helps you to avoid these kinds of errors in your code.
+Este recurso evita que o operador de atribuição (`=`) seja usado acidentalmente
+quando o operador igual a (`==`) é o que se pretende.
+Tornando `if x = y` inválido,
+O Swift ajuda você a evitar esses tipos de erros em seu código.
 
 @Comment {
-  TODO: Should we mention that x = y = z is also not valid?
-  If so, is there a convincing argument as to why this is a good thing?
+  TODO: Devemos mencionar que (`x = y = z`) também não é válido?
+  Em caso afirmativo, há um argumento convincente sobre por quê isso é uma coisa boa?
+  
 }
 
-## Arithmetic Operators
+## Operadores aritméticos
 
-Swift supports the four standard *arithmetic operators* for all number types:
+O Swift suporta os quatro **operadores aritméticos** padrão para todos os tipos de números:
 
-- Addition (`+`)
-- Subtraction (`-`)
-- Multiplication (`*`)
-- Division (`/`)
+- Adição (`+`)
+- Subtração (`-`)
+- Multiplicação (`*`)
+- Divisão (`/`)
 
 ```swift
-1 + 2       // equals 3
-5 - 3       // equals 2
-2 * 3       // equals 6
-10.0 / 2.5  // equals 4.0
+1 + 2       // igual a 3
+5 - 3       // igual a 2
+2 * 3       // igual a 6
+10.0 / 2.5  // igual a 4.0
 ```
 
 
@@ -182,15 +179,15 @@ Swift supports the four standard *arithmetic operators* for all number types:
   ```
 }
 
-Unlike the arithmetic operators in C and Objective-C,
-the Swift arithmetic operators don't allow values to overflow by default.
-You can opt in to value overflow behavior by using Swift's overflow operators
-(such as `a &+ b`). See <doc:AdvancedOperators#Overflow-Operators>.
+Ao contrário dos operadores aritméticos em C e Objective-C,
+os operadores aritméticos do Swift não permitem que os valores estourem por padrão.
+Você pode optar por avaliar o comportamento de estouro usando os operadores de estouro do Swift
+(como em `a &+ b`). Consulte <doc:OperadoresAvançados#Operadores-de-Estouro>.
 
-The addition operator is also supported for `String` concatenation:
+O operador de adição também é pode ser usado para fazer concatenação de `String`:
 
 ```swift
-"hello, " + "world"  // equals "hello, world"
+"hello, " + "world"  // igual a "hello, world"
 ```
 
 
@@ -204,17 +201,17 @@ The addition operator is also supported for `String` concatenation:
   ```
 }
 
-### Remainder Operator
+### Operador de resto de divisão
 
-The *remainder operator* (`a % b`)
-works out how many multiples of `b` will fit inside `a`
-and returns the value that's left over
-(known as the *remainder*).
+O **operador de resto de divisão** (`a % b`)
+calcula quantos múltiplos de `b` caberão dentro de `a`
+e retorna o valor que sobrou
+(conhecido como **resto**).
 
-> Note: The remainder operator (`%`) is also known as
-> a *modulo operator* in other languages.
-> However, its behavior in Swift for negative numbers means that,
-> strictly speaking, it's a remainder rather than a modulo operation.
+> Nota: O operador de resto (`%`) também é conhecido como
+> um **operador de módulo** em outras linguagens.
+> No entanto, seu comportamento em Swift para números negativos significa que,
+> estritamente falando, é um resto e não uma operação de módulo.
 
 @Comment {
   - test: `percentOperatorIsRemainderNotModulo`
@@ -232,18 +229,17 @@ and returns the value that's left over
   ```
 }
 
-Here's how the remainder operator works.
-To calculate `9 % 4`, you first work out how many `4`s will fit inside `9`:
+Veja como o operador de resto funciona.
+Para calcular `9 % 4`, você primeiro calcula quantos `4`s caberão dentro de `9`:
 
 ![](remainderInteger)
 
+Você pode colocar dois `4`s dentro de um `9`, e o resto é `1`.
 
-You can fit two `4`s inside `9`, and the remainder is `1` (shown in orange).
-
-In Swift, this would be written as:
+Em Swift, isso seria escrito como:
 
 ```swift
-9 % 4    // equals 1
+9 % 4    // igual a 1
 ```
 
 
@@ -257,23 +253,23 @@ In Swift, this would be written as:
   ```
 }
 
-To determine the answer for `a % b`,
-the `%` operator calculates the following equation
-and returns `remainder` as its output:
+Para determinar a resposta para `a % b`,
+o operador `%` calcula a seguinte equação
+e retorna `restante` como sua saída:
 
 `a` = (`b` x `some multiplier`) + `remainder`
 
-where `some multiplier` is the largest number of multiples of `b`
-that will fit inside `a`.
+onde `some multiplier` é o maior número de múltiplos de `b`
+que caberão dentro de `a`.
 
-Inserting `9` and `4` into this equation yields:
+Inserir `9` e `4` nesta equação produz:
 
 `9` = (`4` x `2`) + `1`
 
-The same method is applied when calculating the remainder for a negative value of `a`:
+O mesmo método é aplicado ao calcular o restante para um valor negativo de `a`:
 
 ```swift
--9 % 4   // equals -1
+-9 % 4   // igual a -1
 ```
 
 
@@ -287,24 +283,24 @@ The same method is applied when calculating the remainder for a negative value o
   ```
 }
 
-Inserting `-9` and `4` into the equation yields:
+Inserir `-9` e `4` na equação produz:
 
 `-9` = (`4` x `-2`) + `-1`
 
-giving a remainder value of `-1`.
+dando para o resto um valor de `-1`.
 
-The sign of `b` is ignored for negative values of `b`.
-This means that `a % b` and `a % -b` always give the same answer.
+O sinal de `b` é ignorado para valores negativos de `b`.
+Isso significa que `a % b` e `a % -b` sempre dão a mesma resposta.
 
-### Unary Minus Operator
+### Operador Unário: Menos
 
-The sign of a numeric value can be toggled using a prefixed `-`,
-known as the *unary minus operator*:
+O sinal de um valor numérico pode ser alternado usando um prefixo `-`,
+conhecido como o **operador de menos unário**:
 
 ```swift
 let three = 3
-let minusThree = -three       // minusThree equals -3
-let plusThree = -minusThree   // plusThree equals 3, or "minus minus three"
+let minusThree = -three       // 'minusThree' é igual a -3
+let plusThree = -minusThree   // 'plusThree' é igual a 3, or "menos menos 'three' "
 ```
 
 
@@ -313,22 +309,22 @@ let plusThree = -minusThree   // plusThree equals 3, or "minus minus three"
   
   ```swifttest
   -> let three = 3
-  -> let minusThree = -three       // minusThree equals -3
-  -> let plusThree = -minusThree   // plusThree equals 3, or "minus minus three"
+  -> let minusThree = -three       // minusThree é igual a -3
+  -> let plusThree = -minusThree   // plusThree é igual a, or "menos menos 'three' "
   ```
 }
 
-The unary minus operator (`-`) is prepended directly before the value it operates on,
-without any white space.
+O operador de menos unário (`-`) é prefixado diretamente antes do valor em que opera,
+sem nenhum espaço em branco.
 
-### Unary Plus Operator
+### Operador Unário: Soma
 
-The *unary plus operator* (`+`) simply returns
-the value it operates on, without any change:
+O **operador unário de soma** (`+`) simplesmente retorna
+o valor em que opera, sem qualquer alteração:
 
 ```swift
 let minusSix = -6
-let alsoMinusSix = +minusSix  // alsoMinusSix equals -6
+let alsoMinusSix = +minusSix  // 'alsoMinusSix' é igual a -6
 ```
 
 
@@ -337,24 +333,24 @@ let alsoMinusSix = +minusSix  // alsoMinusSix equals -6
   
   ```swifttest
   -> let minusSix = -6
-  -> let alsoMinusSix = +minusSix  // alsoMinusSix equals -6
+  -> let alsoMinusSix = +minusSix  // 'alsoMinusSix' é igual a -6
   >> assert(alsoMinusSix == minusSix)
   ```
 }
 
-Although the unary plus operator doesn't actually do anything,
-you can use it to provide symmetry in your code for positive numbers
-when also using the unary minus operator for negative numbers.
+Embora o operador unário de soma não faça nada,
+você pode usá-lo para fornecer simetria em seu código para números positivos
+ao usar também o operador de menos unário para números negativos.
 
-## Compound Assignment Operators
+## Operadores de atribuição composta
 
-Like C, Swift provides *compound assignment operators* that combine assignment (`=`) with another operation.
-One example is the *addition assignment operator* (`+=`):
+Assim como C, Swift fornece **operadores de atribuição composta** que combinam atribuição (`=`) com outra operação.
+Um exemplo é o **operador de atribuição de adição** (`+=`):
 
 ```swift
 var a = 1
 a += 2
-// a is now equal to 3
+// 'a' agora é igual a 3
 ```
 
 
@@ -369,40 +365,40 @@ a += 2
   ```
 }
 
-The expression `a += 2` is shorthand for `a = a + 2`.
-Effectively, the addition and the assignment are combined into one operator
-that performs both tasks at the same time.
+A expressão `a += 2` é um atalho para `a = a + 2`.
+Efetivamente, a adição e a atribuição são combinadas em um operador
+que executa as duas tarefas ao mesmo tempo.
 
-> Note: The compound assignment operators don't return a value.
-> For example, you can't write `let b = a += 2`.
+> Nota: Os operadores de atribuição compostos não retornam um valor.
+> Por exemplo, você não pode escrever `let b = a += 2`.
 
-For information about the operators provided by the Swift standard library,
-see [Operator Declarations](https://developer.apple.com/documentation/swift/operator_declarations).
+Para obter informações sobre os operadores fornecidos pela biblioteca padrão Swift,
+consulte [Operadores de Declaração](https://developer.apple.com/documentation/swift/operator_declarations).
 
-## Comparison Operators
+## Operadores de Comparação
 
-Swift supports the following comparison operators:
+Swift suporta os seguintes operadores de comparação:
 
-- Equal to (`a == b`)
-- Not equal to (`a != b`)
-- Greater than (`a > b`)
-- Less than (`a < b`)
-- Greater than or equal to (`a >= b`)
-- Less than or equal to (`a <= b`)
+- Igual a (`a == b`)
+- Diferente de (`a != b`)
+- Maior que (`a > b`)
+- Menor que (`a < b`)
+- Maior ou igual a (`a >= b`)
+- Menor ou igual a (`a <= b`)
 
-> Note: Swift also provides two *identity operators* (`===` and `!==`),
-> which you use to test whether two object references both refer to the same object instance.
-> For more information, see <doc:ClassesAndStructures#Identity-Operators>.
+> Nota: Swift também fornece dois **operadores de referência** (`===` e `!==`),
+> que você usa para testar se duas referências de objeto se referem à mesma instância de objeto.
+> Para obter mais informações, consulte <doc:ClassesEStructs#Operadores-de-Referência>.
 
-Each of the comparison operators returns a `Bool` value to indicate whether or not the statement is true:
+Cada um dos operadores de comparação retorna um valor `Bool` para indicar se a declaração é verdadeira ou não:
 
 ```swift
-1 == 1   // true because 1 is equal to 1
-2 != 1   // true because 2 isn't equal to 1
-2 > 1    // true because 2 is greater than 1
-1 < 2    // true because 1 is less than 2
-1 >= 1   // true because 1 is greater than or equal to 1
-2 <= 1   // false because 2 isn't less than or equal to 1
+1 == 1   // true porque 1 é igual a 1
+2 != 1   // true porque 2 não é igual a 1
+2 > 1    // true porque 2 é maior que 1
+1 < 2    // true porque 1 é menor que 2
+1 >= 1   // true porque 1 é maior ou igual a 1
+2 <= 1   // false porque 2 não é menor ou igual a 1
 ```
 
 
@@ -411,28 +407,28 @@ Each of the comparison operators returns a `Bool` value to indicate whether or n
   
   ```swifttest
   >> assert(
-  -> 1 == 1   // true because 1 is equal to 1
+  -> 1 == 1   // true porque 1 é igual a 1
   >> )
   >> assert(
-  -> 2 != 1   // true because 2 isn't equal to 1
+  -> 2 != 1   // true porque 2 não é igual a 1
   >> )
   >> assert(
-  -> 2 > 1    // true because 2 is greater than 1
+  -> 2 > 1    // true porque 2 é maior que 1
   >> )
   >> assert(
-  -> 1 < 2    // true because 1 is less than 2
+  -> 1 < 2    // true porque 1 é menor que 2
   >> )
   >> assert(
-  -> 1 >= 1   // true because 1 is greater than or equal to 1
+  -> 1 >= 1   // true porque 1 é maior ou igual a 1
   >> )
   >> assert( !(
-  -> 2 <= 1   // false because 2 isn't less than or equal to 1
+  -> 2 <= 1   // false porque 2 não é menor ou igual a 1
   >> ) )
   ```
 }
 
-Comparison operators are often used in conditional statements,
-such as the `if` statement:
+Operadores de comparação são frequentemente usados em declarações condicionais,
+como a instrução `if`:
 
 ```swift
 let name = "world"
@@ -441,7 +437,7 @@ if name == "world" {
 } else {
    print("I'm sorry \(name), but I don't recognize you")
 }
-// Prints "hello, world", because name is indeed equal to "world".
+// Imprime "hello, world", porque 'name' é, de fato, igual a "world".
 ```
 
 
@@ -456,29 +452,29 @@ if name == "world" {
         print("I'm sorry \(name), but I don't recognize you")
      }
   << hello, world
-  // Prints "hello, world", because name is indeed equal to "world".
+  // Imprime "hello, world", porque 'name' é, de fato, igual a "world".
   ```
 }
 
-For more about the `if` statement, see <doc:ControlFlow>.
+Para saber mais sobre a instrução `if`, veja <doc:ControleDeFluxo>.
 
-You can compare
-two tuples if they have the same type and the same number of values.
-Tuples are compared from left to right,
-one value at a time,
-until the comparison finds two values
-that aren't equal.
-Those two values are compared,
-and the result of that comparison
-determines the overall result of the tuple comparison.
-If all the elements are equal,
-then the tuples themselves are equal.
-For example:
+Você pode comparar
+duas tuplas se elas tiverem o mesmo tipo e o mesmo número de valores.
+As tuplas são comparadas da esquerda para a direita,
+um valor de cada vez,
+até que a comparação encontre dois valores
+que não são iguais.
+Esses dois valores são comparados,
+e o resultado dessa comparação
+determina o resultado geral da comparação de tuplas.
+Se todos os elementos forem iguais,
+então as próprias tuplas são iguais. 
+Por exemplo:
 
 ```swift
-(1, "zebra") < (2, "apple")   // true because 1 is less than 2; "zebra" and "apple" aren't compared
-(3, "apple") < (3, "bird")    // true because 3 is equal to 3, and "apple" is less than "bird"
-(4, "dog") == (4, "dog")      // true because 4 is equal to 4, and "dog" is equal to "dog"
+(1, "zebra") < (2, "apple")   // true porque 1 é menor que 2; "zebra" e "apple" não são comparados
+(3, "apple") < (3, "bird")    // true porque 3 é igual a 3 e "apple" é menor que "bird"
+(4, "dog") == (4, "dog")      // true porque 4 é igual a 4 e "dog" é igual a "dog"
 ```
 
 
@@ -487,41 +483,42 @@ For example:
   
   ```swifttest
   >> let a =
-  -> (1, "zebra") < (2, "apple")   // true because 1 is less than 2; "zebra" and "apple" aren't compared
+  -> (1, "zebra") < (2, "apple")   //  true porque 1 é menor que 2; "zebra" e "apple" não são comparados
   >> let b =
-  -> (3, "apple") < (3, "bird")    // true because 3 is equal to 3, and "apple" is less than "bird"
+  -> (3, "apple") < (3, "bird")    // true porque 3 é igual a 3 e "apple" é menor que "bird"
   >> let c =
-  -> (4, "dog") == (4, "dog")      // true because 4 is equal to 4, and "dog" is equal to "dog"
+  -> (4, "dog") == (4, "dog")      // true porque 4 é igual a 4 e "dog" é igual a "dog"
   >> print(a, b, c)
   << true true true
   ```
 }
 
-In the example above,
-you can see the left-to-right comparison behavior on the first line.
-Because `1` is less than `2`,
-`(1, "zebra")` is considered less than `(2, "apple")`,
-regardless of any other values in the tuples.
-It doesn't matter that `"zebra"` isn't less than `"apple"`,
-because the comparison is already determined by the tuples' first elements.
-However,
-when the tuples' first elements are the same,
-their second elements *are* compared ---
-this is what happens on the second and third line.
+No exemplo acima,
+você pode ver o comportamento de comparação da esquerda para a direita na primeira linha.
+Como `1` é menor que `2`,
+`(1, "zebra")` é considerado menor que `(2, "apple")`,
+independentemente de quaisquer outros valores nas tuplas.
+Não importa que `"zebra"` não seja menor que `"apple"`,
+porque a comparação já é determinada pelos primeiros elementos das tuplas.
+No entanto,
+quando os primeiros elementos das tuplas são os mesmos,
+seus segundos elementos **são** comparados ---
+isso é o que acontece na segunda e terceira linha.
 
-Tuples can be compared with a given operator only if the operator
-can be applied to each value in the respective tuples. For example,
-as demonstrated in the code below, you can compare
-two tuples of type `(String, Int)` because
-both `String` and `Int` values can be compared
-using the `<` operator.  In contrast,
-two tuples of type `(String, Bool)` can't be compared
-with the `<` operator because the `<` operator can't be applied to
-`Bool` values.
+Tuplas podem ser comparadas com um determinado operador somente se o operador
+pode ser aplicado a cada valor nas respectivas tuplas. Por exemplo,
+conforme demonstrado no código abaixo, você pode comparar
+duas tuplas do tipo `(String, Int)` porque
+ambos os valores `String` e `Int` podem ser comparados
+usando o operador `<`. Em contrapartida,
+duas tuplas do tipo `(String, Bool)` não podem ser comparadas
+com o operador `<` porque o operador `<` não pode ser aplicado a
+valores `Bool`.
 
 ```swift
-("blue", -1) < ("purple", 1)        // OK, evaluates to true
-("blue", false) < ("purple", true)  // Error because < can't compare Boolean values
+("blue", -1) < ("purple", 1)        // OK, avalia como true
+("blue", false) < ("purple", true)  // Erro, pois < não pode ser usado para valores Booleanos
+
 ```
 
 
@@ -530,9 +527,9 @@ with the `<` operator because the `<` operator can't be applied to
   
   ```swifttest
   >> _ =
-  -> ("blue", -1) < ("purple", 1)        // OK, evaluates to true
+  -> ("blue", -1) < ("purple", 1)        // OK, avalia como true
   >> _ =
-  -> ("blue", false) < ("purple", true)  // Error because < can't compare Boolean values
+  -> ("blue", false) < ("purple", true)  // Erro, pois < não pode ser usado para valores Booleanos
   !$ error: type '(String, Bool)' cannot conform to 'Comparable'
   !! ("blue", false) < ("purple", true)  // Error because < can't compare Boolean values
   !!                 ^
@@ -549,24 +546,24 @@ with the `<` operator because the `<` operator can't be applied to
   - test: `tuple-comparison-operators-ok`
   
   ```swifttest
-  >> let x = ("blue", -1) < ("purple", 1)        // OK, evaluates to true
+  >> let x = ("blue", -1) < ("purple", 1)        // OK, avalia como true
   >> print(x)
   << true
   ```
 }
 
-> Note: The Swift standard library includes tuple comparison operators
-> for tuples with fewer than seven elements.
-> To compare tuples with seven or more elements,
-> you must implement the comparison operators yourself.
+> Nota: A biblioteca padrão do Swift inclui operadores de comparação de tuplas
+> para tuplas com menos de sete elementos.
+> Para comparar tuplas com sete ou mais elementos,
+> você mesmo deve implementar os operadores de comparação.
 
 @Comment {
-  TODO: which types do these operate on by default?
-  How do they work with strings?
-  How about with your own types?
+  TODO: em quais tipos eles operam por padrão?
+  Como eles trabalham com *strings*?
+  E com seus próprios tipos?
 }
 
-## Ternary Conditional Operator
+## Operador Condicional Ternário
 
 The *ternary conditional operator* is a special operator with three parts,
 which takes the form `question ? answer1 : answer2`.
