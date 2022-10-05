@@ -85,20 +85,20 @@ Zeros become ones, and ones become zeros.
 The value of `invertedBits` is `11110000`,
 which is equal to an unsigned decimal value of `240`.
 
-### Bitwise AND Operator
+### Operador Bit a bit AND
 
-The *bitwise AND operator* (`&`) combines the bits of two numbers.
-It returns a new number whose bits are set to `1`
-only if the bits were equal to `1` in *both* input numbers:
+O *operador bit a bit AND* (`&`) combina os bits de dois números. 
+Ele retorna um novo número cujo os bits são definitos como  `1`
+somente se os bits forem igual a `1` em ambos os numeros de entrada: 
 
 ![](bitwiseAND)
 
+No exemplo abaixo,
+os valores de `firstSixBits` e `lastSixBits`
+ambos têm quatro bit no meio igual a `1`.
+O operador bit a bit AND combina os dois para formar o número `00111100`,
+que é igual ao decinal não atribuído de valor `60`:
 
-In the example below,
-the values of `firstSixBits` and `lastSixBits`
-both have four middle bits equal to `1`.
-The bitwise AND operator combines them to make the number `00111100`,
-which is equal to an unsigned decimal value of `60`:
 
 ```swift
 let firstSixBits: UInt8 = 0b11111100
