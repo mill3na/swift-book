@@ -1,50 +1,27 @@
 
 
-# A Swift Tour
+# Um guia de Swift
 
 
 
-Tradition suggests that the first program in a new language
-should print the words “Hello, world!” on the screen.
-In Swift, this can be done in a single line:
-
-@Comment {
-  K&R uses “hello, world”.
-  It seems worth breaking with tradition to use proper casing.
-}
+A tradição sugere que o primeiro programa em uma nova linguagem  deve imprimir a frase "Olá, mundo!" na tela.
+Em Swift, esta pode ser feita em uma simples linha:
 
 ```swift
-print("Hello, world!")
-// Prints "Hello, world!"
-```
+print("Olá, mundo!")
+// imprime "Olá, mundo!"```
 
+Se você já escreveu códigos em C ou Objective-C,
+esta sitaxe parecerá familiar para você ---
+em Swift, esta linha de código é um programa completo.
+Você não precisa importar uma biblioteca à parte para uma funcionalidade como entrada e saída ou manipulação de uma string.
+O código escrito em um escopo global é usado como ponto inicial para o programa, então você não precisa de uma função `main()`.
+Você também não precisa escrever ponto e vírgula no final de cada declaração.
 
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> print("Hello, world!")
-  <- Hello, world!
-  ```
-}
-
-If you have written code in C or Objective-C,
-this syntax looks familiar to you ---
-in Swift, this line of code is a complete program.
-You don't need to import a separate library for functionality like
-input/output or string handling.
-Code written at global scope is used
-as the entry point for the program,
-so you don't need a `main()` function.
-You also don't need to write semicolons
-at the end of every statement.
-
-This tour gives you enough information
-to start writing code in Swift
-by showing you how to accomplish a variety of programming tasks.
-Don’t worry if you don’t understand something ---
-everything introduced in this tour
-is explained in detail in the rest of this book.
+Este guia lhe dá informações suficientes
+para começar a escrever códigos em Swift, mostrando como realizar uma variedade de tarefas de programação.
+Não se preocupe se você não entender alguma coisa ---
+tudo o que for introduzido neste guia será explicado em detalhes neste livro.
 
 ## Valores Simples
 
