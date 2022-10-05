@@ -1763,7 +1763,7 @@ let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 
 ## Concorrência
 
-Use 'async' para marcar uma função que é executada de forma assíncrona.
+Use `async` para marcar uma função que é executada de forma assíncrona.
 
 ```swift
 func fetchUserID(from server: String) async -> Int {
@@ -1774,21 +1774,7 @@ func fetchUserID(from server: String) async -> Int {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func fetchUserID(from server: String) async -> Int {
-         if server == "primary" {
-             return 97
-         }
-         return 501
-     }
-  ```
-}
-
-Você marca uma chamada para uma função assíncrona escrevendo 'await na frente dela.
+Você marca uma chamada para uma função assíncrona escrevendo `await` na frente dela.
 
 ```swift
 func fetchUsername(from server: String) async -> String {
@@ -1800,22 +1786,7 @@ func fetchUsername(from server: String) async -> String {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func fetchUsername(from server: String) async -> String {
-         let userID = await fetchUserID(from: server)
-         if userID == 501 {
-             return "John Appleseed"
-         }
-         return "Guest"
-     }
-  ```
-}
-
-Use 'async let' para chamar uma função assíncrona,
+Use `async let` para chamar uma função assíncrona,
 deixando-a rodar em paralelo com outro código assíncrono.
 Quando você usar o valor que ela retorna, escreva 'await'.
 
@@ -1828,21 +1799,7 @@ func connectUser(to server: String) async {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func connectUser(to server: String) async {
-         async let userID = fetchUserID(from: server)
-         async let username = fetchUsername(from: server)
-         let greeting = await "Hello \(username), user ID \(userID)"
-         print(greeting)
-     }
-  ```
-}
-
-Use 'Task' para chamar funções assíncronas de código síncrono,
+Use `Task` para chamar funções assíncronas de código síncrono,
 sem esperar que eles retornem.
 
 ```swift
@@ -1851,19 +1808,6 @@ Task {
 }
 // Printar "Hello Guest, user ID 97"
 ```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> Task {
-         await connectUser(to: "primary")
-     }
-  >> import Darwin; sleep(1)  // Pause for task to run
-  <- Hello Guest, user ID 97
-  ```
-}
 
 ## Protocols and Extensions
 
