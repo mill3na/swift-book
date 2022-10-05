@@ -118,11 +118,11 @@ let middleFourBits = firstSixBits & lastSixBits  // equals 00111100
   ```
 }
 
-### Bitwise OR Operator
+### Operador bit a bit OR
 
-The *bitwise OR operator* (`|`) compares the bits of two numbers.
-The operator returns a new number whose bits are set to `1`
-if the bits are equal to `1` in *either* input number:
+O *operador bit a bit OR* (`|`) compara os bits de dois números.
+O operador retorna um novo número cujo os bits são definidos como  `1`
+se os bits forem iguais a `1` em *nenhum* dos números de entrada. 
 
 ![](bitwiseOR)
 
@@ -131,15 +131,16 @@ if the bits are equal to `1` in *either* input number:
   iBooks Store screenshot ends here.
 }
 
-In the example below,
-the values of `someBits` and `moreBits` have different bits set to `1`.
-The bitwise OR operator combines them to make the number `11111110`,
-which equals an unsigned decimal of `254`:
+No exemplo abaixo, 
+os valores de `someBits` e `moreBits` têm diferentes bits definidos como `1`.
+O operador bit a bit OR os combina para formar o número `11111110`,
+que é equivalente ao decimal não atribuído de valor `254`:
+
 
 ```swift
 let someBits: UInt8 = 0b10110010
 let moreBits: UInt8 = 0b01011110
-let combinedbits = someBits | moreBits  // equals 11111110
+let combinedbits = someBits | moreBits  // é igual a 11111110
 ```
 
 
