@@ -566,16 +566,11 @@ with the `<` operator because the `<` operator can't be applied to
   How about with your own types?
 }
 
-## Ternary Conditional Operator
+## Operador Condicional Ternário
 
-The *ternary conditional operator* is a special operator with three parts,
-which takes the form `question ? answer1 : answer2`.
-It's a shortcut for evaluating one of two expressions
-based on whether `question` is true or false.
-If `question` is true, it evaluates `answer1` and returns its value;
-otherwise, it evaluates `answer2` and returns its value.
+O *operador condicional ternário* é um operador especial com três partes, no formato `question ? answer1 : answer2`. É uma abreviação para escolher uma de duas expressões baseado se `question` é verdadeiro ou falso. Se `question` é verdadeiro. Se `question` for verdadeiro, ele escolhe `answer1` e retorna seu valor; caso contrário, ele escolhe `answer2` e retorna seu valor.
 
-The ternary conditional operator is shorthand for the code below:
+O operador condicional ternário é uma abreviação para o código abaixo:
 
 ```swift
 if question {
@@ -612,15 +607,14 @@ if question {
   Swift doesn't have 'if' expressions.
 }
 
-Here's an example, which calculates the height for a table row.
-The row height should be 50 points taller than the content height
-if the row has a header, and 20 points taller if the row doesn't have a header:
+Aqui está um exemplo, que calcula a altura da linha de uma tabela. A altura da linha deve ser 50 pontos mais alta que a altura do conteúdo
+se a linha tiver um cabeçalho e 20 pontos mais alta se a linha não tiver um cabeçalho:
 
 ```swift
 let contentHeight = 40
 let hasHeader = true
 let rowHeight = contentHeight + (hasHeader ? 50 : 20)
-// rowHeight is equal to 90
+// `rowHeight` é igual a 90
 ```
 
 
@@ -636,7 +630,7 @@ let rowHeight = contentHeight + (hasHeader ? 50 : 20)
   ```
 }
 
-The example above is shorthand for the code below:
+O exemplo acima é uma abreviação para o código abaixo:
 
 ```swift
 let contentHeight = 40
@@ -668,15 +662,10 @@ if hasHeader {
   ```
 }
 
-The first example's use of the ternary conditional operator means that
-`rowHeight` can be set to the correct value on a single line of code,
-which is more concise than the code used in the second example.
+O uso do operador condicional ternário no primeiro exemplo significa que `rowHeight` pode ser definido com o valor correto em uma única linha de código,
+que é mais conciso que o código usado no segundo exemplo.
 
-The ternary conditional operator provides
-an efficient shorthand for deciding which of two expressions to consider.
-Use the ternary conditional operator with care, however.
-Its conciseness can lead to hard-to-read code if overused.
-Avoid combining multiple instances of the ternary conditional operator into one compound statement.
+O operador condicional ternário fornece uma abreviação eficiente para decidir qual das duas expressões escolher. No entanto, use o operador condicional ternário com cuidado. Sua concisão pode levar a um código difícil de ler se usado em excesso. Evite combinar várias instâncias do operador condicional ternário em uma instrução composta.
 
 ## Nil-Coalescing Operator
 
