@@ -206,29 +206,27 @@ whereas shifting it to the right by one position halves its value.
   TODO: mention the caveats to this claim.
 }
 
-#### Shifting Behavior for Unsigned Integers
+#### Comportamento de deslocamento de bits para inteiros não sinalizados
 
-The bit-shifting behavior for unsigned integers is as follows:
+O comportamento de descolamento de bits para inteiros não sinalizados é o seguinte:
 
-- Existing bits are moved to the left or right by the requested number of places.
-- Any bits that are moved beyond the bounds of the integer's storage are discarded.
-- Zeros are inserted in the spaces left behind
-   after the original bits are moved to the left or right.
+- Bits existentes são deslocado para a esquerda ou direita pelo número de posições solicitadas.
+- Quaisquer bits que são deslocamento além dos limites do armazenamento dos inteiros são descartados.
+- Os zeros são inseridos em espaços deixados para trás depois que os bits originais foram deslocados para a esquerda ou direita.
 
-This approach is known as a *logical shift*.
+Essa abordagem é conhecida como *d lógica*.
 
-The illustration below shows the results of `11111111 << 1`
-(which is `11111111` shifted to the left by `1` place),
-and `11111111 >> 1`
-(which is `11111111` shifted to the right by `1` place).
-Blue numbers are shifted,
-gray numbers are discarded,
-and orange zeros are inserted:
+A ilustração abaixo mostra os resultados de ‘11111111 << 1’
+(o qual `11111111` é movido para a direita por ‘1’ posição),
+e `11111111 >> 1`
+(o qual `11111111` é movido para a direita por ‘1’ posição).
+Os números azuis são movidos,
+os números cinzas são descartados,
+e os zeros laranjas são inseridos.
 
 ![](bitshiftUnsigned)
 
-
-Here's how bit shifting looks in Swift code:
+Confira como o bit movido aparece na Swift:
 
 ```swift
 let shiftBits: UInt8 = 4   // 00000100 in binary
@@ -268,7 +266,7 @@ shiftBits >> 2             // 00000001
   Tracking bug is <rdar://problem/35301593>
 }
 
-You can use bit shifting to encode and decode values within other data types:
+Você pode usar o deslocamento de bit para codificar e descodificar valores com outros tipos de dados:
 
 ```swift
 let pink: UInt32 = 0xCC6699
@@ -292,36 +290,36 @@ let blueComponent = pink & 0x0000FF           // blueComponent is 0x99, or 153
   ```
 }
 
-This example uses a `UInt32` constant called `pink` to store a
-Cascading Style Sheets color value for the color pink.
-The CSS color value `#CC6699` is written as
-`0xCC6699` in Swift's hexadecimal number representation.
-This color is then decomposed into its
-red (`CC`), green (`66`), and blue (`99`) components
-by the bitwise AND operator (`&`) and the bitwise right shift operator (`>>`).
+Esse exemplo usa uma constante `UInt32` chamada `pink` (rosa) para armazenar um
+um valor de cor em Cascading Style Sheets (CSS ou Folha de Estilos em Cascata) para a cor rosa. 
+O valor decor em ‘#CC6699’ é escrito como
+‘0xCC6699’ na representação numérica hexadecimal da Swift.
+Essa cor é então decomposta em
+componentes vermelho (`CC`), verde (`66`), e azul (`99`)
+pelo bit a bit AND operador (‘&’) e o operador bit a bit de deslocamento à direita (‘>>’).
 
-The red component is obtained by performing a bitwise AND
-between the numbers `0xCC6699` and `0xFF0000`.
-The zeros in `0xFF0000` effectively “mask” the second and third bytes of `0xCC6699`,
-causing the `6699` to be ignored and leaving `0xCC0000` as the result.
+O componente do vermelho é obtido executando o bit a bit AND
+entre os números `0xCC6699` e `0xFF0000`.
+Os zeros em ‘0xFF0000’ ‘’mascaram’’ efetivamente o segundo e terceiro bites de ‘0xCC6699’,
+fazendo com que o ’6699’ seja ignorado e tornando como resultado ‘0xCC0000’.
 
-This number is then shifted 16 places to the right (`>> 16`).
-Each pair of characters in a hexadecimal number uses 8 bits,
-so a move 16 places to the right will convert `0xCC0000` into `0x0000CC`.
-This is the same as `0xCC`, which has a decimal value of `204`.
+Esse número é, então, deslocado em 16 posições para a direita (‘>> 16’)
+Cada par de caracteres em um número hexadecimal usa 8 bits,
+então, um movimento de 16 posições para a direita irá converter ‘0xCC0000’ em ‘0xCC0000’.
+Isso é o mesmo que ‘0xCC’, que tem um valor decimal de ‘204’.
 
-Similarly, the green component is obtained by performing a bitwise AND
-between the numbers `0xCC6699` and `0x00FF00`,
-which gives an output value of `0x006600`.
-This output value is then shifted eight places to the right,
-giving a value of `0x66`, which has a decimal value of `102`.
+Da mesma maneira, o componente verde é obtido executando um bit a bit AND
+entre os números ‘0xCC6699’ e ’00x00FF00’,
+que dá um valor de saída de ‘0x006600’.
+Este valor de saída é, então, deslocado oito posições para a direita,
+resultando em um valor de ‘0x66’, que tem um valor decimal de ‘102’.
 
-Finally, the blue component is obtained by performing a bitwise AND
-between the numbers `0xCC6699` and `0x0000FF`,
-which gives an output value of `0x000099`.
-Because `0x000099` already equals `0x99`,
-which has a decimal value of `153`,
-this value is used without shifting it to the right,
+Por fim, o componente azul é obtido executando um bit a bit AND
+entre os números ‘0xCC6699’ e ‘0x0000FF’,
+que dá um valor de saída ‘0x000099’.
+Pois ‘0x000099’ já é igual ‘0x99’,
+que tem um valor decimal de ’153’,
+esse valor é usado sem deslocá-lo para a direita.
 
 #### Shifting Behavior for Signed Integers
 
