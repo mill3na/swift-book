@@ -847,7 +847,7 @@ For more about `for`-`in` loops, see <doc:ControlFlow>.
 
 ### Operador de intervalo semiaberto
 
-O *operador de intervalo semiaberto
+O *operador de intervalo semiaberto*
 define o intervalo que percorre de ‘a’ até ‘b’,
 mas não inclui ‘b’.
 É definido como semiabeto
