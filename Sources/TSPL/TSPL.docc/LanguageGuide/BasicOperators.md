@@ -1197,11 +1197,11 @@ if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
   
   ```swifttest
   -> if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
-        print("Bem-Vindo!")
+        print("Welcome!")
      } else {
-        print("ACESSO NEGADO")
+        print("ACCESS DENIED")
      }
-  <- Bem-Vindo!
+  <- Welcome!
   ```
 }
 
