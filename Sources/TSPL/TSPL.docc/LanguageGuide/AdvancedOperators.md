@@ -217,9 +217,9 @@ O comportamento de descolamento de bits para inteiros não sinalizados é o segu
 Essa abordagem é conhecida como *d lógica*.
 
 A ilustração abaixo mostra os resultados de ‘11111111 << 1’
-(o qual `11111111` é movido para a direita por ‘1’ posição),
-e `11111111 >> 1`
-(o qual `11111111` é movido para a direita por ‘1’ posição).
+(o qual '11111111' é movido para a direita por ‘1’ posição),
+e '11111111 >> 1'
+(o qual '11111111' é movido para a direita por ‘1’ posição).
 Os números azuis são movidos,
 os números cinzas são descartados,
 e os zeros laranjas são inseridos.
@@ -228,20 +228,20 @@ e os zeros laranjas são inseridos.
 
 Confira como o bit movido aparece na Swift:
 
-```swift
+'''swift
 let shiftBits: UInt8 = 4   // 00000100 in binary
 shiftBits << 1             // 00001000
 shiftBits << 2             // 00010000
 shiftBits << 5             // 10000000
 shiftBits << 6             // 00000000
 shiftBits >> 2             // 00000001
-```
+'''
 
 
 @Comment {
-  - test: `bitwiseShiftOperators`
+  - test: 'bitwiseShiftOperators'
   
-  ```swifttest
+  '''swifttest
   -> let shiftBits: UInt8 = 4   // 00000100 in binary
   >> let r0 =
   -> shiftBits << 1             // 00001000
@@ -258,7 +258,7 @@ shiftBits >> 2             // 00000001
   >> let r4 =
   -> shiftBits >> 2             // 00000001
   >> assert(r4 == 1)
-  ```
+  '''
 }
 
 @Comment {
@@ -268,18 +268,18 @@ shiftBits >> 2             // 00000001
 
 Você pode usar o deslocamento de bit para codificar e descodificar valores com outros tipos de dados:
 
-```swift
+'''swift
 let pink: UInt32 = 0xCC6699
 let redComponent = (pink & 0xFF0000) >> 16    // redComponent is 0xCC, or 204
 let greenComponent = (pink & 0x00FF00) >> 8   // greenComponent is 0x66, or 102
 let blueComponent = pink & 0x0000FF           // blueComponent is 0x99, or 153
-```
+'''
 
 
 @Comment {
-  - test: `bitwiseShiftOperators`
+  - test: 'bitwiseShiftOperators'
   
-  ```swifttest
+  '''swifttest
   -> let pink: UInt32 = 0xCC6699
   -> let redComponent = (pink & 0xFF0000) >> 16    // redComponent is 0xCC, or 204
   -> let greenComponent = (pink & 0x00FF00) >> 8   // greenComponent is 0x66, or 102
@@ -287,19 +287,19 @@ let blueComponent = pink & 0x0000FF           // blueComponent is 0x99, or 153
   >> assert(redComponent == 204)
   >> assert(greenComponent == 102)
   >> assert(blueComponent == 153)
-  ```
+  '''
 }
 
-Esse exemplo usa uma constante `UInt32` chamada `pink` (rosa) para armazenar um
+Esse exemplo usa uma constante 'UInt32' chamada 'pink' (rosa) para armazenar um
 um valor de cor em Cascading Style Sheets (CSS ou Folha de Estilos em Cascata) para a cor rosa. 
 O valor decor em ‘#CC6699’ é escrito como
 ‘0xCC6699’ na representação numérica hexadecimal da Swift.
 Essa cor é então decomposta em
-componentes vermelho (`CC`), verde (`66`), e azul (`99`)
+componentes vermelho ('CC'), verde ('66'), e azul ('99')
 pelo bit a bit AND operador (‘&’) e o operador bit a bit de deslocamento à direita (‘>>’).
 
 O componente do vermelho é obtido executando o bit a bit AND
-entre os números `0xCC6699` e `0xFF0000`.
+entre os números '0xCC6699' e '0xFF0000'.
 Os zeros em ‘0xFF0000’ ‘’mascaram’’ efetivamente o segundo e terceiro bites de ‘0xCC6699’,
 fazendo com que o ’6699’ seja ignorado e tornando como resultado ‘0xCC0000’.
 
@@ -309,7 +309,7 @@ então, um movimento de 16 posições para a direita irá converter ‘0xCC0000�
 Isso é o mesmo que ‘0xCC’, que tem um valor decimal de ‘204’.
 
 Da mesma maneira, o componente verde é obtido executando um bit a bit AND
-entre os números ‘0xCC6699’ e ’00x00FF00’,
+entre os números ‘0xCC6699’ e ’0x00FF00’,
 que dá um valor de saída de ‘0x006600’.
 Este valor de saída é, então, deslocado oito posições para a direita,
 resultando em um valor de ‘0x66’, que tem um valor decimal de ‘102’.
