@@ -1088,30 +1088,30 @@ careful choice of Boolean constant and variable names
 can help to keep code readable and concise,
 while avoiding double negatives or confusing logic statements.
 
-### Logical AND Operator
+### Operador Lógico AND
 
-The *logical AND operator* (`a && b`) creates logical expressions
-where both values must be `true` for the overall expression to also be `true`.
+O *Operador Lógico AND* (`a && b`) cria expressões lógicas
+onde ambos os valores devem ser `true` para que a expressão geral também seja `true`.
 
-If either value is `false`,
-the overall expression will also be `false`.
-In fact, if the *first* value is `false`,
-the second value won't even be evaluated,
-because it can't possibly make the overall expression equate to `true`.
-This is known as *short-circuit evaluation*.
+Se um dos valores for `falso`,
+a expressao geral será tida como `false`.
+Na verdade, se o *primeiro* valor for `falso`,
+o segundo valor nem será avaliado,
+porque não é possível que a expressão geral seja igual a `true`.
+Isso é conhecido como *avaliação de curto-circuito*.
 
-This example considers two `Bool` values
-and only allows access if both values are `true`:
+Este exemplo considera dois valores `Bool`
+e só permite acesso se ambos os valores forem `true`:
 
 ```swift
 let enteredDoorCode = true
 let passedRetinaScan = false
 if enteredDoorCode && passedRetinaScan {
-   print("Welcome!")
+   print("Bem-Vindo!")
 } else {
-   print("ACCESS DENIED")
+   print("ACESSO NEGADO")
 }
-// Prints "ACCESS DENIED"
+// Prints "ACESSO NEGADO"
 ```
 
 
