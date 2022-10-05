@@ -924,19 +924,19 @@ but `0..<count` only counts as far as `3`
 because it's a half-open range.
 For more about arrays, see <doc:CollectionTypes#Arrays>.
 
-### One-Sided Ranges
+### Intervalos unilaterais
 
-The closed range operator
-has an alternative form for ranges that continue
-as far as possible in one direction ---
-for example,
-a range that includes all the elements of an array
-from index 2 to the end of the array.
-In these cases, you can omit the value
-from one side of the range operator.
-This kind of range is called a *one-sided range*
-because the operator has a value on only one side.
-For example:
+O operador de intervalo fechado
+tem uma forma alternativa para intervalos que continuam
+o mais longe possível em uma direção ---
+por exemplo,
+um intervalo que inclui todos os elementos de um array
+do index 2 até o fim do array.
+Nesses casos, você pode omitir o valor
+de um lado do operador de intervalo.
+Esse tipo de intervalo é chamado de *intervalo unilateral* (one-sided range)
+porque o operador possui valor em apenas um lado.
+Por exemplo:
 
 ```swift
 for name in names[2...] {
@@ -973,12 +973,13 @@ for name in names[...2] {
   ```
 }
 
-The half-open range operator also has
-a one-sided form that's written
-with only its final value.
-Just like when you include a value on both sides,
-the final value isn't part of the range.
-For example:
+O intervalo meio-aberto também tem
+uma forma unilateral que é escrita
+com apenas seu valor final.
+Da mesma forma que se inclui um valor em ambos os lados,
+o valor final não é parte do intervalo.
+Por exemplo:
+
 
 ```swift
 for name in names[..<2] {
@@ -1001,16 +1002,17 @@ for name in names[..<2] {
   ```
 }
 
-One-sided ranges can be used in other contexts,
-not just in subscripts.
-You can't iterate over a one-sided range
-that omits a first value,
-because it isn't clear where iteration should begin.
-You *can* iterate over a one-sided range that omits its final value;
-however, because the range continues indefinitely,
-make sure you add an explicit end condition for the loop.
-You can also check whether a one-sided range contains a particular value,
-as shown in the code below.
+Intervalos unilaterais podem ser usados em outros contextos,
+não apenas em subscritos.
+Você não pode iterar sobre um intervalo unilateral
+que omite o primeiro valor,
+pois não é claro onde a iteração deve iniciar.
+Voce *pode* iterar sobre um intervalo unilateral que omite seu valor final;
+entretanto, por conta do intervalo continuar indefinidamente, 
+certifique-se de adicionar uma condição explícita para finalizar o loop.
+Voce pode também checar se um intervalo unilateral contém um valor particular,
+como mostrado no código abaixo.
+
 
 ```swift
 let range = ...5
