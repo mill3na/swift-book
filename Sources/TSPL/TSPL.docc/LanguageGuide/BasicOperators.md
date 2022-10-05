@@ -774,17 +774,13 @@ colorNameToUse = userDefinedColorName ?? defaultColorName
   ```
 }
 
-## Range Operators
+## Operadores de Intervalo
 
-Swift includes several *range operators*,
-which are shortcuts for expressing a range of values.
+O Swift possuí diversos *operadores de intervalo*, que são maneiras mais simples de se expressar um intervalo de valores.
 
-### Closed Range Operator
+### Operador de Intervalo Fechado
 
-The *closed range operator* (`a...b`)
-defines a range that runs from `a` to `b`,
-and includes the values `a` and `b`.
-The value of `a` must not be greater than `b`.
+O *operador de intervalo fechado* (`a...b`) estabelece um intervalo que vai de `a` até `b`, incluindo os próprios valores de `a` e `b`. O valor de `a` não pode ser maior que o valor de `b`.
 
 @Comment {
   - test: `closedRangeStartCanBeLessThanEnd`
@@ -813,9 +809,7 @@ The value of `a` must not be greater than `b`.
   ```
 }
 
-The closed range operator is useful when iterating over a range
-in which you want all of the values to be used,
-such as with a `for`-`in` loop:
+O operador de intervalo fechado pode ser útil quando se deve iterar sobre um intervalo em que você quer que todos os valores sejam utilizados, assim como em um laço `for`-`in`:
 
 ```swift
 for index in 1...5 {
@@ -844,7 +838,7 @@ for index in 1...5 {
   ```
 }
 
-For more about `for`-`in` loops, see <doc:ControlFlow>.
+Para saber mais sobre laços `for`-`in`, veja em <doc:ControlFlow>.
 
 ### Half-Open Range Operator
 
