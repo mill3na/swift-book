@@ -1867,7 +1867,7 @@ Task {
 
 ## Protocolos e Extensões
 
-Use 'protocol para declarar um protocolo.
+Use `protocol` para declarar um protocolo.
 
 ```swift
 protocol ExampleProtocol {
@@ -1876,27 +1876,7 @@ protocol ExampleProtocol {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> protocol ExampleProtocol {
-          var simpleDescription: String { get }
-          mutating func adjust()
-     }
-  ```
-}
-
 Classes, enumerações e estruturas podem adotar protocolos.
-
-@Comment {
-  REFERENCE
-  The use of adjust() is totally a placeholder
-  for some more interesting operation.
-  Likewise for the struct and classes -- placeholders
-  for some more interesting data structure.
-}
 
 ```swift
 class SimpleClass: ExampleProtocol {
@@ -1921,38 +1901,6 @@ b.adjust()
 let bDescription = b.simpleDescription
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> class SimpleClass: ExampleProtocol {
-          var simpleDescription: String = "A very simple class."
-          var anotherProperty: Int = 69105
-          func adjust() {
-               simpleDescription += "  Now 100% adjusted."
-          }
-     }
-  -> var a = SimpleClass()
-  -> a.adjust()
-  -> let aDescription = a.simpleDescription
-  >> print(aDescription)
-  << A very simple class.  Now 100% adjusted.
-  ---
-  -> struct SimpleStructure: ExampleProtocol {
-          var simpleDescription: String = "A simple structure"
-          mutating func adjust() {
-               simpleDescription += " (adjusted)"
-          }
-     }
-  -> var b = SimpleStructure()
-  -> b.adjust()
-  -> let bDescription = b.simpleDescription
-  >> print(bDescription)
-  << A simple structure (adjusted)
-  ```
-}
-
 > Experimento: Adicione outro requisito ao `ExampleProtocol`.
 > Que mudanças você precisa fazer
 > para `SimpleClass` e `SimpleStructure`
@@ -1963,7 +1911,7 @@ Observe o uso da palavra-chave `mutating`
 na declaração `SimpleStructure`
 para marcar um método que modifica a estrutura.
 A declaração `SimpleClass` não precisa
-qualquer um de seus métodos marcados como 'mutating'
+qualquer um de seus métodos marcados como `mutating`
 porque os métodos em uma classe sempre podem modificar a classe.
 
 Use `extension` para adicionar funcionalidade a um tipo existente,
@@ -1985,24 +1933,6 @@ print(7.simpleDescription)
 // Prints "The number 7"
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> extension Int: ExampleProtocol {
-         var simpleDescription: String {
-             return "The number \(self)"
-         }
-         mutating func adjust() {
-             self += 42
-         }
-      }
-  -> print(7.simpleDescription)
-  <- The number 7
-  ```
-}
-
 > Experiência: Escreva uma extensão para o tipo `Double`
 > que adiciona uma propriedade `absoluteValue`.
 
@@ -2019,18 +1949,6 @@ print(protocolValue.simpleDescription)
 // Prints "A very simple class.  Now 100% adjusted."
 // print(protocolValue.anotherProperty)  // Uncomment to see the error
 ```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> let protocolValue: ExampleProtocol = a
-  -> print(protocolValue.simpleDescription)
-  <- A very simple class.  Now 100% adjusted.
-  // print(protocolValue.anotherProperty)  // Uncomment to see the error
-  ```
-}
 
 Mesmo que a variável `protocolValue`
 tem um tipo de tempo de execução de `SimpleClass`,
