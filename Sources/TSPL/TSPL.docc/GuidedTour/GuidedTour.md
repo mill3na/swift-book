@@ -7,7 +7,8 @@ Em Swift, esta pode ser feita em uma simples linha:
 
 ```swift
 print("Olá, mundo!")
-// imprime "Olá, mundo!"```
+// imprime "Olá, mundo!"
+```
 
 Se você já escreveu códigos em C ou Objective-C,
 esta sitaxe parecerá familiar para você ---
@@ -1084,7 +1085,6 @@ que tem vários tipos diferentes,
 mas que todos estão em conformidade com um único protocolo.
 Quando você trabalha com valores cujo tipo é um tipo de protocolo,
 métodos que não estão na definição do protocolo não estarão disponíveis.
->>>>>>> main
 
 ```swift
 let protocolValue: ExampleProtocol = a
