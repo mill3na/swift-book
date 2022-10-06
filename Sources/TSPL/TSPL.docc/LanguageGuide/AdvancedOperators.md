@@ -214,7 +214,6 @@ mas os mesmos princípios podem ser aplicados para inteiros com sinal de qualque
 Inteiros com sinal usam o primeiro bit (conhecido como *bit de sinal*)
 para indicar que o inteiro é positivo ou negativo.
 O sinal para o bit `0`siginifica positivo, e o sinal para bit `1` significa negativo. 
-Signed integers use their first bit (known as the *sign bit*)
 
 Os bits restantes (conhecidos como *bits de valor*) armazenam o valor atual.
 Os números positivos são armazenados exatamente da mesma maneira que os inteiros sem sinal,
