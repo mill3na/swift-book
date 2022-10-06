@@ -568,7 +568,7 @@ with the `<` operator because the `<` operator can't be applied to
 
 ## Operador Condicional Ternário
 
-O *operador condicional ternário* é um operador especial com três partes, no formato `question ? answer1 : answer2`. É uma abreviação para escolher uma de duas expressões baseado se `question` é verdadeiro ou falso. Se `question` for verdadeiro. Se `question` for verdadeiro, ele escolhe `answer1` e retorna seu valor; caso contrário, ele escolhe `answer2` e retorna seu valor.
+O *operador condicional ternário* é um operador especial com três partes, no formato `question ? answer1 : answer2`. É uma abreviação para escolher uma de duas expressões baseado se `question` é verdadeiro ou falso. Se `question` for verdadeiro, ele escolhe `answer1` e retorna seu valor; caso contrário, ele escolhe `answer2` e retorna seu valor.
 
 O operador condicional ternário é uma abreviação para o código abaixo:
 
