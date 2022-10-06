@@ -28,16 +28,16 @@ with custom precedence and associativity values.
 These operators can be used and adopted in your code like any of the predefined operators,
 and you can even extend existing types to support the custom operators you define.
 
-## Bitwise Operators
+## Operadores Bit a bit
 
-*Bitwise operators* enable you to manipulate
-the individual raw data bits within a data structure.
-They're often used in low-level programming,
-such as graphics programming and device driver creation.
-Bitwise operators can also be useful when you work with raw data from external sources,
-such as encoding and decoding data for communication over a custom protocol.
+*Operadores bit a bit* permitem que você manipule 
+os bits de dados brutos individuais, dentro de uma estrutura de dados.
+Eles são frequentemente usados em programação de baixo-nível,
+como em programação gráfica e criação de driver de dispositivo.
+Operadores bit a bit podem ser úteis quando você trabalha com dados brutos para fontes externas,
+como codificação e decodificação de dados para comunicação por meio de um protocolo personalizado.
 
-Swift supports all of the bitwise operators found in C, as described below.
+O Swift suporta todos os operadores bit a bit encontrados em C, como descrito abaixo.
 
 ### Operador _Bitwise NOT_
 
