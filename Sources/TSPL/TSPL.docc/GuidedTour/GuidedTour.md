@@ -2039,25 +2039,6 @@ in addition to its protocol conformance.
 
 Você representa erros usando qualquer tipo que adote o protocolo `Error`.
 
-@Comment {
-  REFERENCE
-  PrinterError.OnFire is a reference to the Unix printing system's "lp0 on
-  fire" error message, used when the kernel can't identify the specific error.
-  The names of printers used in the examples in this section are names of
-  people who were important in the development of printing.
-  
-  Bi Sheng is credited with inventing the first movable type out of porcelain
-  in China in the 1040s.  It was a mixed success, in large part because of the
-  vast number of characters needed to write Chinese, and failed to replace
-  wood block printing.  Johannes Gutenberg is credited as the first European
-  to use movable type in the 1440s --- his metal type enabled the printing
-  revolution.  Ottmar Mergenthaler invented the Linotype machine in the 1884,
-  which dramatically increased the speed of setting type for printing compared
-  to the previous manual typesetting.  It set an entire line of type (hence
-  the name) at a time, and was controlled by a keyboard.  The Monotype
-  machine, invented in 1885 by Tolbert Lanston, performed similar work.
-}
-
 ```swift
 enum PrinterError: Error {
     case outOfPaper
@@ -2065,19 +2046,6 @@ enum PrinterError: Error {
     case onFire
 }
 ```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> enum PrinterError: Error {
-         case outOfPaper
-         case noToner
-         case onFire
-     }
-  ```
-}
 
 Use `throw` para lançar um erro
 e `throws` para marcar uma função que pode lançar um erro.
@@ -2093,20 +2061,6 @@ func send(job: Int, toPrinter printerName: String) throws -> String {
     return "Job sent"
 }
 ```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func send(job: Int, toPrinter printerName: String) throws -> String {
-         if printerName == "Never Has Toner" {
-             throw PrinterError.noToner
-         }
-         return "Job sent"
-     }
-  ```
-}
 
 Existem várias maneiras de lidar com erros.
 Uma maneira é usar `do`-`catch`.
@@ -2126,51 +2080,13 @@ do {
 // Prints "Job sent"
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> do {
-         let printerResponse = try send(job: 1040, toPrinter: "Bi Sheng")
-         print(printerResponse)
-     } catch {
-         print(error)
-     }
-  <- Job sent
-  ```
-}
-
 > Experiência: Altere o nome da impressora (printerName) para "Never Has Toner",
 > para que a função `send(job:toPrinter:)` lance um erro.
-
-@Comment {
-  Assertion tests the change that the Experiment box instructs you to make.
-}
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  >> do {
-         let printerResponse = try send(job: 500, toPrinter: "Never Has Toner")
-         print(printerResponse)
-     } catch {
-         print(error)
-     }
-  <- noToner
-  ```
-}
 
 Você pode fornecer vários blocos `catch`
 que lidam com erros específicos.
 Você escreve um padrão depois de `catch` assim como você faz
 após `case` em um _switch_.
-
-@Comment {
-  REFERENCE
-  The "rest of the fire" quote comes from The IT Crowd, season 1 episode 2.
-}
 
 ```swift
 do {
@@ -2185,25 +2101,6 @@ do {
 }
 // Prints "Job sent"
 ```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> do {
-         let printerResponse = try send(job: 1440, toPrinter: "Gutenberg")
-         print(printerResponse)
-     } catch PrinterError.onFire {
-         print("I'll just put this over here, with the rest of the fire.")
-     } catch let printerError as PrinterError {
-         print("Printer error: \(printerError).")
-     } catch {
-         print(error)
-     }
-  <- Job sent
-  ```
-}
 
 > Experimento: Adicione código para lançar um erro dentro do bloco `do`.
 > Que tipo de erro você precisa lançar para que o erro seja tratado pelo primeiro bloco `catch`?
@@ -2220,20 +2117,6 @@ o valor que a função retornou.
 let printerSuccess = try? send(job: 1884, toPrinter: "Mergenthaler")
 let printerFailure = try? send(job: 1885, toPrinter: "Never Has Toner")
 ```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> let printerSuccess = try? send(job: 1884, toPrinter: "Mergenthaler")
-  >> print(printerSuccess as Any)
-  << Optional("Job sent")
-  -> let printerFailure = try? send(job: 1885, toPrinter: "Never Has Toner")
-  >> print(printerFailure as Any)
-  << nil
-  ```
-}
 
 Use `defer` para escrever um bloco de código
 que é executado depois de todos os outros códigos na função,
@@ -2259,32 +2142,6 @@ fridgeContains("banana")
 print(fridgeIsOpen)
 // Prints "false"
 ```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> var fridgeIsOpen = false
-  -> let fridgeContent = ["milk", "eggs", "leftovers"]
-  ---
-  -> func fridgeContains(_ food: String) -> Bool {
-         fridgeIsOpen = true
-         defer {
-             fridgeIsOpen = false
-         }
-  ---
-         let result = fridgeContent.contains(food)
-         return result
-     }
-  >> let containsBanana =
-  -> fridgeContains("banana")
-  >> print(containsBanana)
-  << false
-  -> print(fridgeIsOpen)
-  <- false
-  ```
-}
 
 ## Generics
 
