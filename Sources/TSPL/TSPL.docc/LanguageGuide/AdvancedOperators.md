@@ -937,23 +937,11 @@ original += vectorToAdd
   ```
 }
 
-### Equivalence Operators
+### Operadores de Equivalência
 
-By default, custom classes and structures don't have an implementation of
-the *equivalence operators*,
-known as the *equal to* operator (`==`) and *not equal to* operator (`!=`).
-You usually implement the `==` operator,
-and use the standard library's default implementation of the `!=` operator
-that negates the result of the `==` operator.
-There are two ways to implement the `==` operator:
-You can implement it yourself,
-or for many types, you can ask Swift to synthesize
-an implementation for you.
-In both cases,
-you add conformance to the standard library's `Equatable` protocol.
+Por padrão , classes customizadas e structures não possuem uma implementação dos *operadores de equivalência*, conhecidos como os operadores *igual a* (`==`) e *diferente de* (`!=`). Normalmente se implementa o operador `==` e se usa a implementação padrão do operador (`!=`) da biblioteca padrão que nega o resultado do operador `==`. Existem duas maneiras de se implementar o operador `==`: Você pode implementar por conta própria ou, em muitos casos, você pode pedir ao Swift para que sintetize a implementação por você. Em ambos os casos, você adiciona conformidade ao protocolo `Equatable` da biblioteca padrão.
 
-You provide an implementation of the `==` operator
-in the same way as you implement other infix operators:
+Você pode fornecer a implementação do operador `==` da mesma maneira que implementa outros operadores infixos:
 
 ```swift
 extension Vector2D: Equatable {
@@ -976,14 +964,9 @@ extension Vector2D: Equatable {
   ```
 }
 
-The example above implements an `==` operator
-to check whether two `Vector2D` instances have equivalent values.
-In the context of `Vector2D`,
-it makes sense to consider “equal” as meaning
-“both instances have the same `x` values and `y` values”,
-and so this is the logic used by the operator implementation.
+O exemplo acima implementa um operador `==` para verificar se duas instancias de `Vector2D` tem valores equivalentes. No contexto de `Vector2D`, faz sentido considerar que "igual" significa que "ambas as instâncias tem os mesmos valores de `x` e `y`", sendo essa a lógica usada pela implementação  do operador.
 
-You can now use this operator to check whether two `Vector2D` instances are equivalent:
+Agora você pode usar esse operador para verificar se duas instâncias de `Vector2D` são equivalentes:
 
 ```swift
 let twoThree = Vector2D(x: 2.0, y: 3.0)
@@ -1008,9 +991,7 @@ if twoThree == anotherTwoThree {
   ```
 }
 
-In many simple cases, you can ask Swift
-to provide synthesized implementations of the equivalence operators for you,
-as described in <doc:Protocols#Adopting-a-Protocol-Using-a-Synthesized-Implementation>.
+Em muitos casos simples, você pode pedir que o Swift sintetize a implementação dos operadores de equivalência , como descrito em <doc:Protocols#Adopting-a-Protocol-Using-a-Synthesized-Implementation>.
 
 ## Custom Operators
 
