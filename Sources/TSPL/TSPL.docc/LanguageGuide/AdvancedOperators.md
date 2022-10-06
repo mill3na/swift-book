@@ -225,7 +225,7 @@ Veja como os bits dentro do `Int8` buscam o número `4`:
 
 
 O bit de sinal é `0`(significa "positivo")
-e os sete bits de valor é o número `4`
+e os sete bits de valor são o número `4`
 escrito em notação binária.
 
 Números negativos, no entanto, são armazenados de forma diferente.
