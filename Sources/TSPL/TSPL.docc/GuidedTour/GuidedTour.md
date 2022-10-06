@@ -1,59 +1,32 @@
 
 
-# A Swift Tour
+# Um guia de Swift
 
 
 
-Tradition suggests that the first program in a new language
-should print the words “Hello, world!” on the screen.
-In Swift, this can be done in a single line:
-
-@Comment {
-  K&R uses “hello, world”.
-  It seems worth breaking with tradition to use proper casing.
-}
+A tradição sugere que o primeiro programa em uma nova linguagem  deve imprimir a frase "Olá, mundo!" na tela.
+Em Swift, esta pode ser feita em uma simples linha:
 
 ```swift
-print("Hello, world!")
-// Prints "Hello, world!"
-```
+print("Olá, mundo!")
+// imprime "Olá, mundo!"```
 
+Se você já escreveu códigos em C ou Objective-C,
+esta sitaxe parecerá familiar para você ---
+em Swift, esta linha de código é um programa completo.
+Você não precisa importar uma biblioteca à parte para uma funcionalidade como entrada e saída ou manipulação de uma string.
+O código escrito em um escopo global é usado como ponto inicial para o programa, então você não precisa de uma função `main()`.
+Você também não precisa escrever ponto e vírgula no final de cada declaração.
 
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> print("Hello, world!")
-  <- Hello, world!
-  ```
-}
+Este guia lhe dá informações suficientes
+para começar a escrever códigos em Swift, mostrando como realizar uma variedade de tarefas de programação.
+Não se preocupe se você não entender alguma coisa ---
+tudo o que for introduzido neste guia será explicado em detalhes neste livro.
 
-If you have written code in C or Objective-C,
-this syntax looks familiar to you ---
-in Swift, this line of code is a complete program.
-You don't need to import a separate library for functionality like
-input/output or string handling.
-Code written at global scope is used
-as the entry point for the program,
-so you don't need a `main()` function.
-You also don't need to write semicolons
-at the end of every statement.
+## Valores Simples
 
-This tour gives you enough information
-to start writing code in Swift
-by showing you how to accomplish a variety of programming tasks.
-Don’t worry if you don’t understand something ---
-everything introduced in this tour
-is explained in detail in the rest of this book.
-
-## Simple Values
-
-Use `let` to make a constant and `var` to make a variable.
-The value of a constant
-doesn't need to be known at compile time,
-but you must assign it a value exactly once.
-This means you can use constants to name a value
-that you determine once but use in many places.
+Use `let` para criar uma constante e `var` para criar uma variável.
+O valor de uma constante não precisa ser sabido no momento do código ser compilado. mas você deve atribuí-la um valor somente uma vez. Isso significa que você pode usar constantes para nomear um valor que você determinou uma vez, mas utiliza em muitos lugares.
 
 ```swift
 var myVariable = 42
@@ -72,19 +45,8 @@ let myConstant = 42
   ```
 }
 
-A constant or variable must have the same type
-as the value you want to assign to it.
-However, you don't always have to write the type explicitly.
-Providing a value when you create a constant or variable
-lets the compiler infer its type.
-In the example above,
-the compiler infers that `myVariable` is an integer
-because its initial value is an integer.
-
-If the initial value doesn't provide enough information
-(or if there isn't an initial value),
-specify the type by writing it after the variable,
-separated by a colon.
+A constante ou variável deve ser do mesmo tipo do valor que você quer atribuir a ela.  Entretanto, você nem sempre precisa atribuir o tipo de forma explícita. 
+Dar um valor à constante ou variável no momento de sua criação faz com que o compilador infira qual o seu tipo.  No exemplo acima, o compilador irá inferir que a `myVariable` é um inteiro, pois o seu valor inicial é um inteiro.   Se o valor inicial não entrega informação suficiente (ou se não foi atribuído nenhum valor inicial), especifique o tipo escrevendo-o logo depois da variável, separado por dois pontos. 
 
 ```swift
 let implicitInteger = 70
@@ -103,12 +65,9 @@ let explicitDouble: Double = 70
   ```
 }
 
-> Experiment: Create a constant with
-> an explicit type of `Float` and a value of `4`.
+> Experimente: Crie uma constante com o tipo `Float` explícito e de valor `4`.
 
-Values are never implicitly converted to another type.
-If you need to convert a value to a different type,
-explicitly make an instance of the desired type.
+Valores nunca são implicitamente convertidos para outro tipo. Se você precisar converter um valor para um tipo diferente, faça uma instância explicitamente do tipo desejado. 
 
 ```swift
 let label = "The width is "
@@ -129,8 +88,8 @@ let widthLabel = label + String(width)
   ```
 }
 
-> Experiment: Try removing the conversion to `String` from the last line.
-> What error do you get?
+> Experimente: Tente remover a conversão para `String` da última linha
+> Que tipo de erro dá?
 
 @Comment {
   TODO: Discuss with Core Writers ---
@@ -138,10 +97,7 @@ let widthLabel = label + String(width)
   helping you learn something?
 }
 
-There's an even simpler way to include values in strings:
-Write the value in parentheses,
-and write a backslash (`\`) before the parentheses.
-For example:
+Existe uma forma ainda mais simples de incluir valores em uma string: escreva o valor em parênteses com uma barra invertida (`\`) antes do primeiro parêntese. Por exemplo:
 
 ```swift
 let apples = 3
@@ -166,15 +122,10 @@ let fruitSummary = "I have \(apples + oranges) pieces of fruit."
   ```
 }
 
-> Experiment: Use `\()` to
-> include a floating-point calculation in a string
-> and to include someone’s name in a greeting.
+> Experimente: Use `\()` para incluir um cálculo de floating-point em uma string e para incluir o nome de alguém em uma saudação.
 
-Use three double quotation marks (`"""`) for strings
-that take up multiple lines.
-Indentation at the start of each quoted line is removed,
-as long as it matches the indentation of the closing quotation marks.
-For example:
+Use três aspas duplas para strings que pegam múltiplas linhas.  A indentação no começo de cada linha de texto será removida, caso seja a mesma das aspas fechando. 
+Por exemplo:
 
 ```swift
 let quotation = """
@@ -200,10 +151,7 @@ And then I said "I have \(apples + oranges) pieces of fruit."
   <rdar://problem/49129068> Swift code formatting damages indentation
 }
 
-Create arrays and dictionaries using brackets (`[]`),
-and access their elements by writing
-the index or key in brackets.
-A comma is allowed after the last element.
+Crie arrays e dicionários usando colchetes (`[]`), e acesse seus elementos escrevendo o índex ou chave também entre colchetes. A vírgula após o último elemento é permitida. 
 
 @Comment {
   REFERENCE
@@ -272,7 +220,7 @@ occupations["Jayne"] = "Public Relations"
   ```
 }
 
-Arrays automatically grow as you add elements.
+Os Arrays crescem automaticamente quando você adiciona elementos a eles. 
 
 ```swift
 fruits.append("blueberries")
@@ -290,9 +238,7 @@ print(fruits)
   ```
 }
 
-To create an empty array or dictionary,
-use the initializer syntax.
-
+Para criar um array ou dicionário vazio, use a sintaxe de inicialização.  
 ```swift
 let emptyArray: [String] = []
 let emptyDictionary: [String: Float] = [:]
@@ -308,11 +254,8 @@ let emptyDictionary: [String: Float] = [:]
   ```
 }
 
-If type information can be inferred,
-you can write an empty array as `[]`
-and an empty dictionary as `[:]` ---
-for example, when you set a new value for a variable
-or pass an argument to a function.
+Se o tipo da informação pode ser inferido, você pode escrever um array vazio com `[]` e um dicionário vazio com `[:]`. Por exemplo, quando você configura um novo valor para uma variável ou passa um argumento para uma função.
+
 
 @Comment {
   iBooks Store screenshot begins here.
@@ -333,13 +276,15 @@ occupations = [:]
   ```
 }
 
-## Control Flow
+## Controle de Fluxo
 
-Use `if` and `switch` to make conditionals,
-and use `for`-`in`, `while`, and `repeat`-`while`
-to make loops.
-Parentheses around the condition or loop variable are optional.
-Braces around the body are required.
+`## Controle de Fluxo
+
+Use `if` e `switch` para fazer condicionais,
+e use `for`-`in`, `while`, e `repeat`-`while`
+para criar loops.
+É opcional inserir as condicionais ou variáveis de loop entre parênteses. 
+É obrigatório inserir o texto _body_ entre chaves.
 
 ```swift
 let individualScores = [75, 43, 103, 87, 12]
@@ -375,40 +320,39 @@ print(teamScore)
 }
 
 @Comment {
-  REFERENCE
-  Jelly babies are a candy/sweet that was closely associated
-  with past incarnations of the Doctor in Dr. Who.
+  REFERÊNCIA
+  Gomas de mascar ou _JellyBabies_ são doces frequentemente associados com as regenerações passadas dos doutores na série britânica _Doctor Who_.
 }
 
 @Comment {
   -> let haveJellyBabies = true
   -> if haveJellyBabies {
      }
-  << Would you like a jelly baby?
+  << Você aceita _JellyBabies_?
 }
 
-In an `if` statement,
-the conditional must be a Boolean expression ---
-this means that code such as `if score { ... }` is an error,
-not an implicit comparison to zero.
+Em uma declaração `if`,
+a condicional deve ser uma expressão booleana ---
+isso significa que o código como `if score { ... }` é um erro,
+não é uma comparação implicita à zero.
 
-You can use `if` and `let` together
-to work with values that might be missing.
-These values are represented as optionals.
-An optional value either contains a value
-or contains `nil` to indicate that a value is missing.
-Write a question mark (`?`) after the type of a value
-to mark the value as optional.
+Você pode usar ‘if’ e ‘let’ juntos
+para trabalhar com valores que podem estar ausentes.
+Esses valores são representados como opcionais.
+Um valor opcional contém um valor
+ou contém `nil`para indicar um valor ausente.
+Insira um ponto de interrogação, em seguida, digite um valor
+para marcá-lo como opcional.
 
 @Comment {
-  iBooks Store screenshot ends here.
+ Captura de tela da iBooks Store finaliza aqui.
 }
 
 @Comment {
-  REFERENCE
-  John Appleseed is a stock Apple fake name,
-  going back at least to the contacts database
-  that ships with the SDK in the simulator.
+  REFERÊNCIA
+  John Appleseed é um nome falso da Apple para uso demonstrativo,
+  voltando para, pelo menos, a _database_ de contatos
+  que vem contida no simulador SDK.
 }
 
 ```swift
@@ -442,22 +386,22 @@ if let name = optionalName {
   ```
 }
 
-> Experiment: Change `optionalName` to `nil`.
-> What greeting do you get?
-> Add an `else` clause that sets a different greeting
-> if `optionalName` is `nil`.
+> Experimente: Altere `optionalName` para `nil`.
+> Qual saudação você recebe?
+> Insira `else` para definir uma saudação diferente
+> Se `optionalName` é `nil`.
 
-If the optional value is `nil`,
-the conditional is `false` and the code in braces is skipped.
-Otherwise, the optional value is unwrapped and assigned
-to the constant after `let`,
-which makes the unwrapped value available
-inside the block of code.
+Se o valor opcional é `nil`,
+a condicional é ‘false’ e o código nas chaves são pulados
+Caso contrário, o valor opcional é desempacotado e atribuído,
+para a constant edepois de ‘let’
+o que faz o valor desempacotado ficar disponível
+dentro do bloco de código.
 
-Another way to handle optional values
-is to provide a default value using the `??` operator.
-If the optional value is missing,
-the default value is used instead.
+Outra maneira de lidar com os valores opcionais
+é provendo um valor padrão usando o operador ‘??’.
+Se o valor opcional está ausente,
+o valor padrão é usado como substituto. 
 
 ```swift
 let nickname: String? = nil
@@ -498,17 +442,17 @@ if let nickname {
   ```
 }
 
-Switches support any kind of data
-and a wide variety of comparison operations ---
-they aren't limited to integers
-and tests for equality.
+Switches suporta todos os tipos de dados
+e uma grande variedade de operações de comparação —
+sem limitação de inteiros
+e testes para igualdade.
 
 @Comment {
-  REFERENCE
-  The vegetables and foods made from vegetables
-  were just a convenient choice for a switch statement.
-  They have various properties
-  and fit with the apples & oranges used in an earlier example.
+  REFERÊNCIA
+  Os vegetais e comidas feitas para vegetarianos
+são uma escolha conveniente para uma declaração swift.
+Eles tem várias propriedades
+e se encaixam com o exemplo anterior de maçãs e laranjas.
 }
 
 ```swift
@@ -546,37 +490,33 @@ switch vegetable {
   ```
 }
 
-> Experiment: Try removing the default case.
-> What error do you get?
+> Experimente: tente remover a  _default case_
+> Qual o erro que foi percebido?
 
-Notice how `let` can be used in a pattern
-to assign the value that matched the pattern
-to a constant.
+Perceba como ‘let’ pode ser usado em um padrão
+para determinar o valor que combina o padrão
+com a constante.
 
-After executing the code inside the switch case that matched,
-the program exits from the switch statement.
-Execution doesn't continue to the next case,
-so you don't need to explicitly break out of the switch
-at the end of each case’s code.
+Depois de executar o código dentro do ’switch case’
 
 @Comment {
-  Omitting mention of "fallthrough" keyword.
-  It's in the guide/reference if you need it.
+Omitir a menção “fallthrough".
+  Está no guia/referência, caso seja necessário.
 }
 
-You use `for`-`in` to iterate over items in a dictionary
-by providing a pair of names to use
-for each key-value pair.
-Dictionaries are an unordered collection,
-so their keys and values are iterated over
-in an arbitrary order.
+Você usa `for`-`in`para integrar os itens em um dicionário
+provendo um par names para usar
+para cada par de chave de valor.
+Dicionários são uma coleção não-ordenada
+então, suas chaves e valores são integrados
+em uma ordem arbritária
 
 @Comment {
-  REFERENCE
-  Prime, square, and Fibonacci numbers
-  are just convenient sets of numbers
-  that many developers are already familiar with
-  that we can use for some simple math.
+  REFERÊNCIA
+  Números primos, quadrados e de Fibonacci
+  são só números convenientes
+  que muitos desenvolvedores são familiarizados
+  e que podemos usar para cálculos simples.
 }
 
 ```swift
@@ -620,15 +560,15 @@ print(largest)
   ```
 }
 
-> Experiment: Replace the `_` with a variable name,
-> and keep track of which kind of number was the largest.
+> Experimente: Substitua `_` com o nome de uma variável,
+> e acompanhe qual tipo de número foi maior.
 
-Use `while` to repeat a block of code until a condition changes.
-The condition of a loop can be at the end instead,
-ensuring that the loop is run at least once.
+Use `while` para repetir um bloco de código até a condição mudar.
+As condições de um loop podem estar no final
+assegurando que o loop será executado pelo menos uma vez.
 
 @Comment {
-  REFERENCE
+  REEFERÊNCIA
   This example is rather skeletal -- m and n are pretty boring.
   I couldn't come up with anything suitably interesting at the time though,
   so I just went ahead and used this.
@@ -671,8 +611,8 @@ print(m)
   ```
 }
 
-You can keep an index in a loop
-by using `..<` to make a range of indexes.
+Você pode manter um _index_ em loop
+usando `..<` para criar uma série de _indexes_.
 
 ```swift
 var total = 0
@@ -697,16 +637,15 @@ print(total)
   ```
 }
 
-Use `..<` to make a range that omits its upper value,
-and use `...` to make a range that includes both values.
+Use `..<` para criar um intervalo que omite seu maior valor,
+e use `...` para usar um intervalo que inclui ambos valores.
 
-## Functions and Closures
+## Funções e *Closures*
 
-Use `func` to declare a function.
-Call a function by following its name
-with a list of arguments in parentheses.
-Use `->` to separate the parameter names and types
-from the function's return type.
+Use `func` para declarar uma função.
+Crie uma função seguindo seu nome
+com uma lista de argumentos entre parênteses.
+Use `->` para separar os nomes e tipos de parâmetros do tipo de retorno da função.
 
 @Comment {
   REFERENCE
@@ -738,14 +677,15 @@ greet(person: "Bob", day: "Tuesday")
   ```
 }
 
-> Experiment: Remove the `day` parameter.
-> Add a parameter to include today’s lunch special in the greeting.
+> Experimente: tente remover o parâmetro `day`.
+> Adicione um parâmetro que inclua o almoço especial de hoje na saudação.
 
-By default,
-functions use their parameter names
-as labels for their arguments.
-Write a custom argument label before the parameter name,
-or write `_` to use no argument label.
+Por padrão,
+funções usam seus nomes de parâmetros
+como rótulos para seus argumentos.
+Escreva um rótulo de argumento personalizado antes do nome do parâmetro,
+ou escreva `_` para não usar nenhum rótulo de argumento.
+
 
 ```swift
 func greet(_ person: String, on day: String) -> String {
@@ -769,10 +709,12 @@ greet("John", on: "Wednesday")
   ```
 }
 
-Use a tuple to make a compound value ---
-for example, to return multiple values from a function.
-The elements of a tuple can be referred to
-either by name or by number.
+
+Use uma tupla para fazer um valor composto ---
+por exemplo, para retornar vários valores de uma função.
+Os elementos de uma tupla podem ser referenciados pelo
+nome ou pelo número.
+
 
 @Comment {
   REFERENCE
@@ -801,9 +743,9 @@ func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
 }
 let statistics = calculateStatistics(scores: [5, 3, 100, 3, 9])
 print(statistics.sum)
-// Prints "120"
+// Imprime "120"
 print(statistics.2)
-// Prints "120"
+// Imprime "120"
 ```
 
 
@@ -837,12 +779,11 @@ print(statistics.2)
   ```
 }
 
-Functions can be nested.
-Nested functions have access to variables
-that were declared in the outer function.
-You can use nested functions
-to organize the code in a function
-that's long or complex.
+Funções podem ser aninhadas.
+Funções aninhadas têm acesso a variáveis
+que foram declaradas na função externa.
+Você pode usá-las para organizar o código em funções
+que são longas ou complexas.
 
 ```swift
 func returnFifteen() -> Int {
@@ -876,8 +817,8 @@ returnFifteen()
   ```
 }
 
-Functions are a first-class type.
-This means that a function can return another function as its value.
+
+As funções são um tipo de primeira classe, o que significa que podem ter outra função como seu valor de retorno.
 
 ```swift
 func makeIncrementer() -> ((Int) -> Int) {
@@ -909,7 +850,7 @@ increment(7)
   ```
 }
 
-A function can take another function as one of its arguments.
+Uma função pode ter outra função como um de seus argumentos.
 
 ```swift
 func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
@@ -951,15 +892,11 @@ hasAnyMatches(list: numbers, condition: lessThanTen)
   ```
 }
 
-Functions are actually a special case of closures:
-blocks of code that can be called later.
-The code in a closure has access to things like variables and functions
-that were available in the scope where the closure was created,
-even if the closure is in a different scope when it's executed ---
-you saw an example of this already with nested functions.
-You can write a closure without a name
-by surrounding code with braces (`{}`).
-Use `in` to separate the arguments and return type from the body.
+As funções são, na verdade, um caso especial de closures:
+blocos de código que podem ser chamados posteriormente.
+O código em uma *closure* tem acesso a coisas como variáveis e funções que estavam disponíveis no escopo de sua criação, ainda que a *clusore* esteja em um escopo diferente quando for executada, --- você viu um exemplo disso já com funções aninhadas.
+Você pode escrever uma *closure* sem um nome, envolvendo o código com chaves (`{}`).
+Use `in` para separar os argumentos e o tipo de retorno do corpo da *closure*.
 
 ```swift
 numbers.map({ (number: Int) -> Int in
@@ -983,20 +920,20 @@ numbers.map({ (number: Int) -> Int in
   ```
 }
 
-> Experiment: Rewrite the closure to return zero for all odd numbers.
+> Experimente: Reescreva essa *closure* para retornar zero para todos os números ímpares.
 
-You have several options for writing closures more concisely.
-When a closure's type is already known,
-such as the callback for a delegate,
-you can omit the type of its parameters,
-its return type, or both.
-Single statement closures implicitly return the value
-of their only statement.
+Você tem várias opções para escrever *closures* de forma mais concisa.
+Quando o seu tipo já é conhecido,
+como o retorno de uma chamada para um *delegate*,
+você pode omitir o tipo de seus parâmetros,
+seu tipo de retorno, ou ambos.
+*Closures* de instrução única retornam implicitamente o valor
+de sua única instrução.
 
 ```swift
 let mappedNumbers = numbers.map({ number in 3 * number })
 print(mappedNumbers)
-// Prints "[60, 57, 21, 36]"
+// Imprime "[60, 57, 21, 36]"
 ```
 
 
@@ -1010,17 +947,17 @@ print(mappedNumbers)
   ```
 }
 
-You can refer to parameters by number instead of by name ---
-this approach is especially useful in very short closures.
-A closure passed as the last argument to a function
-can appear immediately after the parentheses.
-When a closure is the only argument to a function,
-you can omit the parentheses entirely.
+Você pode se referir a parâmetros por número em vez de por nome ---
+essa abordagem é especialmente útil em *closures* muito curtas.
+Uma *closure* passada como o último argumento para uma função
+pode aparecer logo após os parênteses.
+Quando uma *closure* é o único argumento para uma função,
+você pode omitir os parênteses.
 
 ```swift
 let sortedNumbers = numbers.sorted { $0 > $1 }
 print(sortedNumbers)
-// Prints "[20, 19, 12, 7]"
+// Imprime "[20, 19, 12, 7]"
 ```
 
 
@@ -1761,9 +1698,9 @@ let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 > a full deck of cards,
 > with one card of each combination of rank and suit.
 
-## Concurrency
+## Concorrência
 
-Use `async` to mark a function that runs asynchronously.
+Use `async` para marcar uma função que é executada de forma assíncrona.
 
 ```swift
 func fetchUserID(from server: String) async -> Int {
@@ -1774,21 +1711,7 @@ func fetchUserID(from server: String) async -> Int {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func fetchUserID(from server: String) async -> Int {
-         if server == "primary" {
-             return 97
-         }
-         return 501
-     }
-  ```
-}
-
-You mark a call to an asynchronous function by writing `await` in front of it.
+Você marca uma chamada para uma função assíncrona escrevendo `await` na frente dela.
 
 ```swift
 func fetchUsername(from server: String) async -> String {
@@ -1800,24 +1723,9 @@ func fetchUsername(from server: String) async -> String {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func fetchUsername(from server: String) async -> String {
-         let userID = await fetchUserID(from: server)
-         if userID == 501 {
-             return "John Appleseed"
-         }
-         return "Guest"
-     }
-  ```
-}
-
-Use `async let` to call an asynchronous function,
-letting it run in parallel with other asynchronous code.
-When you use the value it returns, write `await`.
+Use `async let` para chamar uma função assíncrona,
+deixando-a rodar em paralelo com outro código assíncrono.
+Quando você usar o valor que ela retorna, escreva 'await'.
 
 ```swift
 func connectUser(to server: String) async {
@@ -1828,42 +1736,15 @@ func connectUser(to server: String) async {
 }
 ```
 
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> func connectUser(to server: String) async {
-         async let userID = fetchUserID(from: server)
-         async let username = fetchUsername(from: server)
-         let greeting = await "Hello \(username), user ID \(userID)"
-         print(greeting)
-     }
-  ```
-}
-
-Use `Task` to call asynchronous functions from synchronous code,
-without waiting for them to return.
+Use `Task` para chamar funções assíncronas de código síncrono,
+sem esperar que eles retornem.
 
 ```swift
 Task {
     await connectUser(to: "primary")
 }
-// Prints "Hello Guest, user ID 97"
+// Printar "Hello Guest, user ID 97"
 ```
-
-
-@Comment {
-  - test: `guided-tour`
-  
-  ```swifttest
-  -> Task {
-         await connectUser(to: "primary")
-     }
-  >> import Darwin; sleep(1)  // Pause for task to run
-  <- Hello Guest, user ID 97
-  ```
-}
 
 ## Protocolos e Extensões
 
@@ -2209,16 +2090,17 @@ print(fridgeIsOpen)
   ```
 }
 
-## Generics
+## Genéricos
 
-Write a name inside angle brackets
-to make a generic function or type.
+
+Escreva o nome dentro de "<" e ">"
+para fazer uma função ou tipo genérico.
 
 @Comment {
-  REFERENCE
-  The four knocks is a reference to Dr Who series 4,
-  in which knocking four times is a running aspect
-  of the season's plot.
+  REFERENCIA
+  Os 4 quatros _knocks_ é uma referência a Dr Who na quarta temporada
+  Onde bater quatro vezes é um aspecto importante
+  da história da temporada.
 }
 
 ```swift
@@ -2251,8 +2133,8 @@ makeArray(repeating: "knock", numberOfTimes: 4)
   ```
 }
 
-You can make generic forms of functions and methods,
-as well as classes, enumerations, and structures.
+Você pode fazer formas genéricas de métodos e funções,
+assim como classes, enumerações e estruturas.
 
 ```swift
 // Reimplement the Swift standard library's optional type
@@ -2279,12 +2161,13 @@ possibleInteger = .some(100)
   ```
 }
 
-Use `where` right before the body
-to specify a list of requirements ---
-for example,
-to require the type to implement a protocol,
-to require two types to be the same,
-or to require a class to have a particular superclass.
+Use _where_ logo antes do corpo da função
+para especificar uma lista de requisitos ---
+por exemplo,
+para requisitar o tipo que implementa um protocolo,
+para requisitar que dois tipos sejam os mesmos
+ou para requerir que uma classe tenha uma superclasse específica.
+
 
 ```swift
 func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
@@ -2326,16 +2209,17 @@ anyCommonElements([1, 2, 3], [3])
   ```
 }
 
-> Experiment: Modify the `anyCommonElements(_:_:)` function
-> to make a function that returns an array
-> of the elements that any two sequences have in common.
+> Experimento: Modifique a função `anyCommonElements(_:_:)`
+> para fazer uma função que retorna um _array_
+> dos elementos que tenham duas sequências em comum.
 
-Writing `<T: Equatable>`
-is the same as writing `<T> ... where T: Equatable`.
+
+Escrever `<T: Equatable>`
+é a mesma coisa que escrever `<T> ... where T: Equatable`.
 
 
 @Comment {
-This source file is part of the Swift.org open source project
+Esse arquivo é parte do projeto open source Swift.org
 
 Copyright (c) 2014 - 2022 Apple Inc. and the Swift project authors
 Licensed under Apache License v2.0 with Runtime Library Exception
