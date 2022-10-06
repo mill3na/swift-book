@@ -1,41 +1,29 @@
 
 
-# Types
+# Tipos
 
-In Swift, there are two kinds of types: named types and compound types.
-A *named type* is a type that can be given a particular name when it's defined.
-Named types include classes, structures, enumerations, and protocols.
-For example,
-instances of a user-defined class named `MyClass` have the type `MyClass`.
-In addition to user-defined named types,
-the Swift standard library defines many commonly used named types,
-including those that represent arrays, dictionaries, and optional values.
+Em Swift, existem dois tipos de dados: tipos nomeados e tipos compostos.
+Um *tipo nomeado* é um tipo que pode receber um nome específico quando é definido.
+Tipos nomeados incluem classes, structs, enums, e protocolos.
+Por exemplo, instâncias de uma classe definida pelo usuário chamada `MyClass`  tem o tipo `MyClass`.
+Além dos tipos nomeados definidos pelo usuário, a biblioteca padrão do Swift define muitos tipos nomeados que são usados com mais frequência, incluindo aqueles que representam arrays, dicionários, e valores opcionais.
 
-Data types that are normally considered basic or primitive in other languages---
-such as types that represent numbers, characters, and strings---
-are actually named types,
-defined and implemented in the Swift standard library using structures.
-Because they're named types,
-you can extend their behavior to suit the needs of your program,
-using an extension declaration,
-discussed in <doc:Extensions> and <doc:Declarations#Extension-Declaration>.
+Tipos de dados que são normalmente considerados básicos ou primitivos em outras linguagens--- tal como os tipos que representam números, caracteres, e strings--- são na verdade tipos nomeados, definidos e implementados na biblioteca padrão do Swift como structs.
+Porque eles são tipos nomeados, você pode extender seus comportamentos para atender as necessidades do seu programa, usando uma declaração de extension, discutida em <doc:Extensions> e <doc:Declarations#Extension-Declaration>.
 
-A *compound type* is a type without a name, defined in the Swift language itself.
-There are two compound types: function types and tuple types.
-A compound type may contain named types and other compound types.
-For example, the tuple type `(Int, (Int, Int))` contains two elements:
-The first is the named type `Int`,
-and the second is another compound type `(Int, Int)`.
+Um *tipo composto* é um tipo sem uma nome, definido na própria linguagem Swift.
+Existem dois tipos compostos: tipos de função e tipos de tuplas.
+Um tipo composto pode conter tipos nomeados e outros tipos compostos.
+Por examplo, o tipo de tupla `(Int, (Int, Int))` contém dois elementos: O primeiro é o tipo nomeado `Int`, e o segundo é  outro tipo composto `(Int, Int)`.
 
-You can put parentheses around a named type or a compound type.
-However, adding parentheses around a type doesn't have any effect.
-For example, `(Int)` is equivalent to `Int`.
+Você pode colocar parênteses ao redor de um tipo nomeado ou de um tipo composto. 
+No entanto, adicionar parênteses ao redor de um tipo nomeado não tem nenhum efeito.
+Por exemplo, `(Int)` é equivalente a `Int`.
 
-This chapter discusses the types defined in the Swift language itself
-and describes the type inference behavior of Swift.
+Este capítulo discute os tipos definidos na própria linguagem Swift e descreve o comportamento de inferência de tipo do Swift.
 
 ```
-Grammar of a type
+Gramática de um tipo
 
 type --> function-type
 type --> array-type
