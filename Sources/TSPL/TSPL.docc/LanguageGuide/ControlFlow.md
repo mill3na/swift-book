@@ -1339,13 +1339,13 @@ and the `throw` statement is described in <doc:ErrorHandling#Propagating-Errors-
 
 ### Continue
 
-The `continue` statement tells a loop to stop what it's doing
-and start again at the beginning of the next iteration through the loop.
-It says “I am done with the current loop iteration”
-without leaving the loop altogether.
+A instrução `continue` diz ao _loop_ para parar o que está fazendo
+e recomeçar no início da próxima iteração do _loop_.
+Ela diz "Terminei a atual iteração do _loop_"
+sem sair completamente do _loop_.
 
-The following example removes all vowels and spaces from a lowercase string
-to create a cryptic puzzle phrase:
+O seguinte exemplo remove todas as vogais e espaços de uma _string_ com letras minúsculas
+para criar uma frase de quebra-cabeça enigmática:
 
 ```swift
 let puzzleInput = "great minds think alike"
@@ -1380,9 +1380,9 @@ print(puzzleOutput)
   ```
 }
 
-The code above calls the `continue` keyword whenever it matches a vowel or a space,
-causing the current iteration of the loop to end immediately
-and to jump straight to the start of the next iteration.
+O código acima chama a palavra-chave `continue` sempre que ele encontrar uma vogal ou espaço,
+fazendo com que a atual iteração do _loop_ pare imediatamente 
+e pule direto para o início da próxima iteração.
 
 ### Break
 
