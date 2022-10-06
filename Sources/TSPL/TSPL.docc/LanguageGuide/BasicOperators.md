@@ -536,27 +536,28 @@ for index in 1...5 {
 
 For more about `for`-`in` loops, see <doc:ControlFlow>.
 
-### Half-Open Range Operator
+### Operador de intervalo semiaberto
 
-The *half-open range operator* (`a..<b`)
-defines a range that runs from `a` to `b`,
-but doesn't include `b`.
-It's said to be *half-open*
-because it contains its first value, but not its final value.
-As with the closed range operator,
-the value of `a` must not be greater than `b`.
-If the value of `a` is equal to `b`,
-then the resulting range will be empty.
-
-
+O *operador de intervalo semiaberto*
+define o intervalo que percorre de ‘a’ até ‘b’,
+mas não inclui ‘b’.
+É definido como semiabeto
+pois contém seu primeiro valor, mas não seu valor final.
+Assim como o operador de intervalo fechado,
+o valor de ‘a’ não deve ser maior que ‘b’.
+Se o valor de ‘a’ é igual a ‘b’.
+então o intervalo resultante será vazio.
 
 
 
 
 
-Half-open ranges are particularly useful when you work with
-zero-based lists such as arrays,
-where it's useful to count up to (but not including) the length of the list:
+
+
+
+Intervalos semiabertos são particularmente úteis quando você trabalha com
+listas baseadas em zero como os _arrays_,
+onde é útil contar até (mas sem incluir) o comprimento da lista:
 
 ```swift
 let names = ["Anna", "Alex", "Brian", "Jack"]
@@ -573,11 +574,12 @@ for i in 0..<count {
 
 
 
-Note that the array contains four items,
-but `0..<count` only counts as far as `3`
-(the index of the last item in the array),
-because it's a half-open range.
-For more about arrays, see <doc:CollectionTypes#Arrays>.
+Note que o _array_ contém quatro itens,
+mas ‘0..<count’ somente conta até ‘3’
+(o índice do último item no _array_),
+pois é um intervalo semiaberto.
+Para saber mais sobre _arrays_, veja: <doc:CollectionTypes#Arrays>.
+
 
 ### Intervalos unilaterais
 

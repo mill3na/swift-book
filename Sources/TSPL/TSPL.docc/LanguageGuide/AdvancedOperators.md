@@ -164,86 +164,45 @@ whereas shifting it to the right by one position halves its value.
 
 
 
-#### Shifting Behavior for Unsigned Integers
+#### Comportamento de deslocamento de bits para inteiros não sinalizados
 
-The bit-shifting behavior for unsigned integers is as follows:
+O comportamento de descolamento de bits para inteiros não sinalizados é o seguinte:
 
-- Existing bits are moved to the left or right by the requested number of places.
-- Any bits that are moved beyond the bounds of the integer's storage are discarded.
-- Zeros are inserted in the spaces left behind
-   after the original bits are moved to the left or right.
+- Bits existentes são deslocado para a esquerda ou direita pelo número de posições solicitadas.
+- Quaisquer bits que são deslocamento além dos limites do armazenamento dos inteiros são descartados.
+- Os zeros são inseridos em espaços deixados para trás depois que os bits originais foram deslocados para a esquerda ou direita.
 
-This approach is known as a *logical shift*.
+Essa abordagem é conhecida como *d lógica*.
 
-The illustration below shows the results of `11111111 << 1`
-(which is `11111111` shifted to the left by `1` place),
-and `11111111 >> 1`
-(which is `11111111` shifted to the right by `1` place).
-Blue numbers are shifted,
-gray numbers are discarded,
-and orange zeros are inserted:
+A ilustração abaixo mostra os resultados de ‘11111111 << 1’
+(o qual '11111111' é movido para a direita por ‘1’ posição),
+e '11111111 >> 1'
+(o qual '11111111' é movido para a direita por ‘1’ posição).
+Os números azuis são movidos,
+os números cinzas são descartados,
+e os zeros laranjas são inseridos.
 
 ![](bitshiftUnsigned)
 
+Confira como o bit movido aparece na Swift:
 
-Here's how bit shifting looks in Swift code:
-
-```swift
+'''swift
 let shiftBits: UInt8 = 4   // 00000100 in binary
 shiftBits << 1             // 00001000
 shiftBits << 2             // 00010000
 shiftBits << 5             // 10000000
 shiftBits << 6             // 00000000
 shiftBits >> 2             // 00000001
-```
+'''
 
+Você pode usar o deslocamento de bit para codificar e descodificar valores com outros tipos de dados:
 
-
-
-
-
-You can use bit shifting to encode and decode values within other data types:
-
-```swift
+'''swift
 let pink: UInt32 = 0xCC6699
 let redComponent = (pink & 0xFF0000) >> 16    // redComponent is 0xCC, or 204
 let greenComponent = (pink & 0x00FF00) >> 8   // greenComponent is 0x66, or 102
 let blueComponent = pink & 0x0000FF           // blueComponent is 0x99, or 153
-```
-
-
-
-
-This example uses a `UInt32` constant called `pink` to store a
-Cascading Style Sheets color value for the color pink.
-The CSS color value `#CC6699` is written as
-`0xCC6699` in Swift's hexadecimal number representation.
-This color is then decomposed into its
-red (`CC`), green (`66`), and blue (`99`) components
-by the bitwise AND operator (`&`) and the bitwise right shift operator (`>>`).
-
-The red component is obtained by performing a bitwise AND
-between the numbers `0xCC6699` and `0xFF0000`.
-The zeros in `0xFF0000` effectively “mask” the second and third bytes of `0xCC6699`,
-causing the `6699` to be ignored and leaving `0xCC0000` as the result.
-
-This number is then shifted 16 places to the right (`>> 16`).
-Each pair of characters in a hexadecimal number uses 8 bits,
-so a move 16 places to the right will convert `0xCC0000` into `0x0000CC`.
-This is the same as `0xCC`, which has a decimal value of `204`.
-
-Similarly, the green component is obtained by performing a bitwise AND
-between the numbers `0xCC6699` and `0x00FF00`,
-which gives an output value of `0x006600`.
-This output value is then shifted eight places to the right,
-giving a value of `0x66`, which has a decimal value of `102`.
-
-Finally, the blue component is obtained by performing a bitwise AND
-between the numbers `0xCC6699` and `0x0000FF`,
-which gives an output value of `0x000099`.
-Because `0x000099` already equals `0x99`,
-which has a decimal value of `153`,
-this value is used without shifting it to the right,
+'''
 
 #### Shifting Behavior for Signed Integers
 
