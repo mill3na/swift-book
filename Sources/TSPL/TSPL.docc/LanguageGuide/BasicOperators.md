@@ -740,9 +740,9 @@ if hasDoorKey || knowsOverridePassword {
 
 
 
-### Combining Logical Operators
+### Combinando Operadores Lógicos
 
-You can combine multiple logical operators to create longer compound expressions:
+Você pode combinar vários operadores lógicos para criar expressões compostas mais longas:
 
 ```swift
 if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
@@ -756,24 +756,24 @@ if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
 
 
 
-This example uses multiple `&&` and `||` operators to create a longer compound expression.
-However, the `&&` and `||` operators still operate on only two values,
-so this is actually three smaller expressions chained together.
-The example can be read as:
+Este exemplo usa vários operadores `&&` e `||` para criar uma expressão composta mais longa.
+No entanto, os operadores `&&` e `||` ainda operam sobre apenas dois valores,
+então, na verdade, são três expressões menores encadeadas.
+O exemplo pode ser lido como:
 
-If we've entered the correct door code and passed the retina scan,
-or if we have a valid door key,
-or if we know the emergency override password,
-then allow access.
+Se inserimos o código de porta correto e passarmos no exame de retina,
+ou se tivermos uma chave de porta válida,
+ou se soubermos a senha de substituição de emergência,
+então permita o acesso.
 
-Based on the values of `enteredDoorCode`, `passedRetinaScan`, and `hasDoorKey`,
-the first two subexpressions are `false`.
-However, the emergency override password is known,
-so the overall compound expression still evaluates to `true`.
+Com base nos valores de `enteredDoorCode`, `passedRetinaScan` e `hasDoorKey`,
+as duas primeiras subexpressões são `false`.
+No entanto, a senha de substituição de emergência é conhecida,
+então a expressão composta geral ainda é avaliada como `true`.
 
-> Note: The Swift logical operators `&&` and `||` are left-associative,
-> meaning that compound expressions with multiple logical operators
-> evaluate the leftmost subexpression first.
+> Note: Os operadores lógicos do Swift `&&` e `||` são associativos à esquerda,
+> significando que expressões compostas com vários operadores lógicos
+> avaliam primeiro a subexpressão mais à esquerda.
 
 ### Parênteses explícitos
 
