@@ -48,7 +48,7 @@ The values that operators affect are *operands*.
 In the expression `1 + 2`, the `+` symbol is an infix operator
 and its two operands are the values `1` and `2`.
 
-## Assignment Operator
+## Operador de Atribuição
 
 O *operador de atribuição* (`a = b`)
 inicializa ou atualiza o valor de `a` com o valor de `b`:
