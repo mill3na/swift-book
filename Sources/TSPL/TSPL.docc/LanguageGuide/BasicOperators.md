@@ -568,7 +568,7 @@ with the `<` operator because the `<` operator can't be applied to
 
 ## Operador Condicional Ternário
 
-O *operador condicional ternário* é um operador especial com três partes, no formato `question ? answer1 : answer2`. É uma abreviação para escolher uma de duas expressões baseado se `question` é verdadeiro ou falso. Se `question` é verdadeiro. Se `question` for verdadeiro, ele escolhe `answer1` e retorna seu valor; caso contrário, ele escolhe `answer2` e retorna seu valor.
+O *operador condicional ternário* é um operador especial com três partes, no formato `question ? answer1 : answer2`. É uma abreviação para escolher uma de duas expressões baseado se `question` é verdadeiro ou falso. Se `question` for verdadeiro. Se `question` for verdadeiro, ele escolhe `answer1` e retorna seu valor; caso contrário, ele escolhe `answer2` e retorna seu valor.
 
 O operador condicional ternário é uma abreviação para o código abaixo:
 
@@ -607,8 +607,7 @@ if question {
   Swift doesn't have 'if' expressions.
 }
 
-Aqui está um exemplo, que calcula a altura da linha de uma tabela. A altura da linha deve ser 50 pontos mais alta que a altura do conteúdo
-se a linha tiver um cabeçalho e 20 pontos mais alta se a linha não tiver um cabeçalho:
+Aqui está um exemplo, que calcula a altura da linha de uma tabela. A altura da linha deve ser 50 pontos mais alta que a altura do conteúdo se a linha tiver um cabeçalho. Caso contrário, a altura da linha deve ser 20 pontos mais alta:
 
 ```swift
 let contentHeight = 40
