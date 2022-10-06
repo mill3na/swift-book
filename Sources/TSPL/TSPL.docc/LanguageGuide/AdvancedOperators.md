@@ -229,7 +229,6 @@ e os sete bits de valor são o número `4`
 escrito em notação binária.
 
 Números negativos, no entanto, são armazenados de forma diferente.
-Eles são armazenados subtraindo do valor absoluto 
 Eles são armazenados subtraindo de seu valor absoluto `2` à potência de `n`,
 onde `n` é o número de bits de valor.
 Um número de oito bits tem sete bits de valor,
