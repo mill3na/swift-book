@@ -313,89 +313,91 @@ These operators all begin with an ampersand (`&`):
 - Overflow subtraction (`&-`)
 - Overflow multiplication (`&*`)
 
-### Value Overflow
+### Valor de Estouro
 
-Numbers can overflow in both the positive and negative direction.
+Números podem estourar tanto em direções positivas como em negativas.
 
-Here's an example of what happens when
-an unsigned integer is allowed to overflow in the positive direction,
-using the overflow addition operator (`&+`):
+Aqui está um exemplo do que acontece quando
+um inteiro sem sinal é permitido estourar um sentido positivo,
+usando um operador de adição de estouro.
 
-```swift
+ ('&+'):
+
+'''swift
 var unsignedOverflow = UInt8.max
-// unsignedOverflow equals 255, which is the maximum value a UInt8 can hold
-unsignedOverflow = unsignedOverflow &+ 1
-// unsignedOverflow is now equal to 0
-```
+// O estouro sem sinal é igual a 255, que é o valor máximo que UInt8 pode conterunsignedOverflow = unsignedOverflow &+ 1
+// O estouro sem sinal é agora igual a 0.
+'''
 
 
 
 
-The variable `unsignedOverflow` is initialized with the maximum value a `UInt8` can hold
-(`255`, or `11111111` in binary).
-It's then incremented by `1` using the overflow addition operator (`&+`).
-This pushes its binary representation just over the size that a `UInt8` can hold,
-causing it to overflow beyond its bounds,
-as shown in the diagram below.
-The value that remains within the bounds of the `UInt8`
-after the overflow addition is `00000000`, or zero.
+
+A variável 'unsignedOverflow' é inicializada com o valor máximo que um 'UInt8' pode conter
+('255' ou '11111111' em binário).
+É então incrementado por '1' usando o operador de adição de estouro ('&+').
+Isso empurra sua representação binária um pouco acima do tamanho que um 'UInt8' pode conter,
+fazendo com que ele transborde além de seus limites,
+como mostrado no diagrama abaixo.
+O valor que permanece dentro dos limites do 'UInt8'
+após a adição de estouro é '00000000', ou zero.
 
 ![](overflowAddition)
 
 
-Something similar happens when
-an unsigned integer is allowed to overflow in the negative direction.
-Here's an example using the overflow subtraction operator (`&-`):
+Algo parecido acontece quando
+um inteiro sem sinal é permitido estourar em um sentido negativo.
+Aqui está um exemplo usando um operador de subtração de estouro ('&-'):
 
-```swift
+'''swift
 var unsignedOverflow = UInt8.min
-// unsignedOverflow equals 0, which is the minimum value a UInt8 can hold
+// O estouro sem sinal é igual a 0, que é o valor mínimo que uma UInt8 pode conter
 unsignedOverflow = unsignedOverflow &- 1
-// unsignedOverflow is now equal to 255
-```
+// O estouro sem sinal agora é igual a 255
+'''
 
 
 
 
-The minimum value that a `UInt8` can hold is zero,
-or `00000000` in binary.
-If you subtract `1` from `00000000` using the overflow subtraction operator (`&-`),
-the number will overflow and wrap around to `11111111`,
-or `255` in decimal.
+O valor mínimo que 'UInt8' pode conter é zero,
+ou '00000000' em binário.
+Se você subtrair ‘1’ de ‘00000000’ usando um operador de subtração de estouro ('&-'),
+o número vai estourar e envolver com ‘11111111’
+ou com ‘255’ em decimal. 
 
 ![](overflowUnsignedSubtraction)
 
 
-Overflow also occurs for signed integers.
-All addition and subtraction for signed integers is performed in bitwise fashion,
-with the sign bit included as part of the numbers being added or subtracted,
-as described in <doc:AdvancedOperators#Bitwise-Left-and-Right-Shift-Operators>.
+O estouro também ocorre para inteiros com sinal.
+Todas as somas e subtrações para inteiros com sinal são executadas de forma bit a bit,
+com o bit de sinal incluído como parte dos números sendo adicionados ou subtraídos,
+conforme descrito em <doc:AdvancedOperators#Bitwise-Left-and-Right-Shift-Operators>.
 
-```swift
+'''swift
 var signedOverflow = Int8.min
-// signedOverflow equals -128, which is the minimum value an Int8 can hold
+// O estouro sem sinal é igual a -128, que é o valor mínimo que uma UInt8 pode conter
 signedOverflow = signedOverflow &- 1
-// signedOverflow is now equal to 127
-```
+// O estouro sem sinal agora é igual a 127
+'''
 
 
 
 
-The minimum value that an `Int8` can hold is `-128`,
-or `10000000` in binary.
-Subtracting `1` from this binary number with the overflow operator
-gives a binary value of `01111111`,
-which toggles the sign bit and gives positive `127`,
-the maximum positive value that an `Int8` can hold.
+O valor mínimo que um ‘Int8’ pode conter é ‘-128’
+ou ‘10000000’ em binário,
+Subtraindo ‘1’ de seu número binário com o operador de estouro
+resulta no valor binário ‘01111111’,
+que alterna o bit de sinal e resulta em positivo ‘127’
+o valor positivo máximo que um ‘Int8’ pode conter.
 
 ![](overflowSignedSubtraction)
 
 
-For both signed and unsigned integers,
-overflow in the positive direction
-wraps around from the maximum valid integer value back to the minimum,
-and overflow in the negative direction
-wraps around from the minimum value to the maximum.
+Para inteiros com e sem sinal,
+o estouro na direção positiva
+envolve do valor inteiro válido máximo de volta ao mínimo,
+e o estouro na direção negativa
+envolve do valor mínimo ao máximo.
 
 ## Precedence and Associativity
 
