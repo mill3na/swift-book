@@ -184,9 +184,9 @@ Swift supports the four standard *arithmetic operators* for all number types:
 }
 
 Diferente dos operadores aritméticos em C e Objective-C,
-os de Swift não permitem valores que os valores ultrapasse o tamanho padrão.
-Você pode optar por avaliar o comportamento de estouro usando os operadores de overflow do Swift
-(como por exemplo `a &+ b`). Veja <doc:AdvancedOperators#Overflow-Operators>.
+os de Swift não permitem valores ultrapassem o tamanho padrão definido (não permite overflow).
+Você pode optar por avaliar o comportamento de overflow usando os operadores de overflow do Swift
+(como por exemplo a &+ b). Veja <doc:AdvancedOperators#Overflow-Operators>.
 
 O operador de adição também é suportado para concatenação de `String`:
 
