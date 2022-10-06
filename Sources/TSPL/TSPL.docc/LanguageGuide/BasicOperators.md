@@ -146,7 +146,7 @@ Swift helps you to avoid these kinds of errors in your code.
   If so, is there a convincing argument as to why this is a good thing?
 }
 
-## Arithmetic Operators
+## Operadores Aritméticos
 
 Swift suporta os 4 *operadores aritméticos* padrões para todos os tipos de números: 
 Swift supports the four standard *arithmetic operators* for all number types:
