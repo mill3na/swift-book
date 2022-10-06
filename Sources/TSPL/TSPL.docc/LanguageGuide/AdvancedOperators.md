@@ -204,78 +204,82 @@ let greenComponent = (pink & 0x00FF00) >> 8   // greenComponent is 0x66, or 102
 let blueComponent = pink & 0x0000FF           // blueComponent is 0x99, or 153
 '''
 
-#### Shifting Behavior for Signed Integers
+#### Comportamento de Deslocamento para Inteiros com Sinal
 
-The shifting behavior is more complex for signed integers than for unsigned integers,
-because of the way signed integers are represented in binary.
-(The examples below are based on 8-bit signed integers for simplicity,
-but the same principles apply for signed integers of any size.)
+O comportamento de deslocamento é mais complicado para inteiros com sinal do que para inteiros sem sinal,
+por conta da maneira que são representados em modo binário.
+(Os exemplos a seguir são baseados em inteiros com sinal de 8-bits para simplificar,
+mas os mesmos princípios podem ser aplicados para inteiros com sinal de qualquer tamanho.)
 
-Signed integers use their first bit (known as the *sign bit*)
-to indicate whether the integer is positive or negative.
-A sign bit of `0` means positive, and a sign bit of `1` means negative.
+Inteiros com sinal usam o primeiro bit (conhecido como *bit de sinal*)
+para indicar que o inteiro é positivo ou negativo.
+O sinal para o bit `0`siginifica positivo, e o sinal para bit `1` significa negativo. 
 
-The remaining bits (known as the *value bits*) store the actual value.
-Positive numbers are stored in exactly the same way as for unsigned integers,
-counting upwards from `0`.
-Here's how the bits inside an `Int8` look for the number `4`:
+Os bits restantes (conhecidos como *bits de valor*) armazenam o valor atual.
+Os números positivos são armazenados exatamente da mesma maneira que os inteiros sem sinal,
+adicionando o `0` à posição inicial.
+Veja como os bits dentro do `Int8` buscam o número `4`:
+
 
 ![](bitshiftSignedFour)
 
 
-The sign bit is `0` (meaning “positive”),
-and the seven value bits are just the number `4`,
-written in binary notation.
+O bit de sinal é `0`(significa "positivo")
+e os sete bits de valor são o número `4`
+escrito em notação binária.
 
-Negative numbers, however, are stored differently.
-They're stored by subtracting their absolute value from `2` to the power of `n`,
-where `n` is the number of value bits.
-An eight-bit number has seven value bits,
-so this means `2` to the power of `7`, or `128`.
+Números negativos, no entanto, são armazenados de forma diferente.
+Eles são armazenados subtraindo de seu valor absoluto `2` à potência de `n`,
+onde `n` é o número de bits de valor.
+Um número de oito bits tem sete bits de valor,
+então isso significa `2` elevado a potência `7`, ou `128`.
 
-Here's how the bits inside an `Int8` look for the number `-4`:
+Veja como os bits dentro de um `Int8` buscam o número `-4`:
+
 
 ![](bitshiftSignedMinusFour)
 
 
-This time, the sign bit is `1` (meaning “negative”),
-and the seven value bits have a binary value of `124` (which is `128 - 4`):
+Desta vez, o bit de sinal é `1` (significando “negativo”),
+e os sete bits de valor têm um valor binário de `124` (que é `128 - 4`):
+
 
 ![](bitshiftSignedMinusFourValue)
 
 
-This encoding for negative numbers is known as a *two's complement* representation.
-It may seem an unusual way to represent negative numbers,
-but it has several advantages.
+Essa codificação para números negativos é uma representação conhecida como *complemento de dois*.
+Pode parecer uma maneira incomum de representar números negativos,
+mas tem várias vantagens.
 
-First, you can add `-1` to `-4`,
-simply by performing a standard binary addition of all eight bits
-(including the sign bit),
-and discarding anything that doesn't fit in the eight bits once you're done:
+Primeiro, você pode adicionar `-1` a `-4`,
+simplesmente executando uma adição binária padrão de todos os oito bits
+(incluindo o bit de sinal),
+e descartando qualquer coisa que não se encaixe nos oito bits quando terminar:
+
 
 ![](bitshiftSignedAddition)
 
+Segundo, a representação do complemento de dois também permite que você
+desloque os bits de números negativos para a esquerda e para a direita como números positivos,
+e ainda acabam dobrando-os para cada deslocamento que você faz para a esquerda,
+ou reduzi-los pela metade para cada mudança que você faz para a direita.
+Para conseguir isso, uma regra extra é usada quando os inteiros com sinal são deslocados para a direita:
+Quando você desloca inteiros com sinal para a direita,
+aplique as mesmas regras que para inteiros sem sinal,
+mas preencha quaisquer bits vazios à esquerda com o *bit de sinal*,
+ao invés de um zero.
 
-Second, the two's complement representation also lets you
-shift the bits of negative numbers to the left and right like positive numbers,
-and still end up doubling them for every shift you make to the left,
-or halving them for every shift you make to the right.
-To achieve this, an extra rule is used when signed integers are shifted to the right:
-When you shift signed integers to the right,
-apply the same rules as for unsigned integers,
-but fill any empty bits on the left with the *sign bit*,
-rather than with a zero.
 
 ![](bitshiftSigned)
 
 
-This action ensures that signed integers have the same sign after they're shifted to the right,
-and is known as an *arithmetic shift*.
+Essa ação garante que os inteiros com sinal tenham o mesmo sinal depois de serem deslocados para a direita,
+conhecido como *deslocamento aritmético*.
 
-Because of the special way that positive and negative numbers are stored,
-shifting either of them to the right moves them closer to zero.
-Keeping the sign bit the same during this shift means that
-negative integers remain negative as their value moves closer to zero.
+Por causa da maneira especial que os números positivos e negativos são armazenados,
+deslocar qualquer um deles para a direita os aproxima de zero.
+Manter o bit de sinal o mesmo durante este deslocamento significa que
+inteiros negativos permanecem negativos à medida que seu valor se aproxima de zero.
 
 ## Overflow Operators
 
