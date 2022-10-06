@@ -1,32 +1,22 @@
 
 
-# Extensions
+# Extensões
 
-*Extensions* add new functionality to an existing
-class, structure, enumeration, or protocol type.
-This includes the ability to extend types
-for which you don't have access to the original source code
-(known as *retroactive modeling*).
-Extensions are similar to categories in Objective-C.
-(Unlike Objective-C categories, Swift extensions don't have names.)
+*Extensões* adicionam novas funcionalidades a uma classe, estrutura, enumeração ou tipo de protocolo existente. Isso inclui a capacidade de estender tipos para os quais você não tem acesso ao código-fonte original (conhecido como *modelagem retroativa*). As extensões são semelhantes às categorias em Objective-C. (Ao contrário das categorias de Objective-C, as extensões Swift não têm nomes.)
 
-Extensions in Swift can:
+Extensões no Swift podem:
 
-- Add computed instance properties and computed type properties
-- Define instance methods and type methods
-- Provide new initializers
-- Define subscripts
-- Define and use new nested types
-- Make an existing type conform to a protocol
+- Adicionar propriedades de instância computadas e propriedades de tipo computado
+- Definir métodos de instância e métodos de tipo
+- Fornecer novos inicializadores
+- Definir subscritos
+- Definir e usar novos tipos aninhados
+- Deixar um tipo existente em conformidade com um protocolo
 
-In Swift,
-you can even extend a protocol to provide implementations of its requirements
-or add additional functionality that conforming types can take advantage of.
-For more details, see <doc:Protocols#Protocol-Extensions>.
+Em Swift, você pode, inclusive, estender um protocolo para fornecer implementações de seus requisitos
+ou adicionar funcionalidades extras que os tipos em conformidade podem aproveitar. Para mais detalhes, consulte <doc:Protocols#Protocol-Extensions>.
 
-> Note: Extensions can add new functionality to a type,
-> but they can't override existing functionality.
-
+> Nota: As extensões podem adicionar novas funcionalidades a um tipo, mas eles não podem substituir a funcionalidade existente.
 
 
 ## Extension Syntax
