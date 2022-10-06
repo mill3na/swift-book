@@ -15,26 +15,26 @@ Para aninhar um tipo dentro de outro tipo,
 escreva sua definição dentro das chaves externas do tipo que ele suporta.
 Os tipos podem ser aninhados em até quantos níveis forem necessários.
 
-## Nested Types in Action
+## Tipos Aninhados em Ação
 
-The example below defines a structure called `BlackjackCard`,
-which models a playing card as used in the game of Blackjack.
-The `BlackjackCard` structure contains two nested enumeration types
-called `Suit` and `Rank`.
+O exemplo abaixo define a estrutura chamada `BlackjackCard`,
+que modela uma carta de baralho usada no jogo de Blackjack.
+A estrutra `BlackjackCard` contém dois tipos enumerados aninhados
+chamados de `Suit` e `Rank`.
 
-In Blackjack, the Ace cards have a value of either one or eleven.
-This feature is represented by a structure called `Values`,
-which is nested within the `Rank` enumeration:
+Em Blackjack, as cartas de Ás têm o valor de um ou onze.
+Este recurso é representado por uma estrutura chamada `Values`,
+que está aninhada dentro da enumeração `Rank`:
 
 ```swift
 struct BlackjackCard {
 
-   // nested Suit enumeration
+   // enumeração Suit aninhada
    enum Suit: Character {
       case spades = "♠", hearts = "♡", diamonds = "♢", clubs = "♣"
    }
 
-   // nested Rank enumeration
+   // enumeração Rank aninhada
    enum Rank: Int {
       case two = 2, three, four, five, six, seven, eight, nine, ten
       case jack, queen, king, ace
@@ -53,13 +53,13 @@ struct BlackjackCard {
       }
    }
 
-   // BlackjackCard properties and methods
+   // propriedades e metodos de BlackjackCard 
    let rank: Rank, suit: Suit
    var description: String {
-      var output = "suit is \(suit.rawValue),"
-      output += " value is \(rank.values.first)"
+      var output = "naipe é \(suit.rawValue),"
+      output += " valor é \(rank.values.first)"
       if let second = rank.values.second {
-         output += " or \(second)"
+         output += " ou \(second)"
       }
       return output
    }
@@ -69,57 +69,59 @@ struct BlackjackCard {
 
 
 
-The `Suit` enumeration describes the four common playing card suits,
-together with a raw `Character` value to represent their symbol.
 
-The `Rank` enumeration describes the thirteen possible playing card ranks,
-together with a raw `Int` value to represent their face value.
-(This raw `Int` value isn't used for the Jack, Queen, King, and Ace cards.)
 
-As mentioned above, the `Rank` enumeration defines
-a further nested structure of its own, called `Values`.
-This structure encapsulates the fact that most cards have one value,
-but the Ace card has two values.
-The `Values` structure defines two properties to represent this:
+A enumeração `Suit` descreve os quatro naipes comuns em jogos de baralho,
+junto a um valor bruto `Character` para representar seu símbolo.
+ 
+A enumeração `Rank` descreve as treze categorias de cartas possíveis em jogos de baralho,
+junto a um valor bruto `Int` para representar seu valor nominal.
+(Esse valor bruto `Int` não é usado por cartas Valetes, Rainhas, Reis nem Ás)
+ 
+Como mencionado acima, a enumeração `Rank` define
+uma estrutura aninhada própria, chamada `Values`.
+Essa estrutura encapsula o fato que a maioria das cartas possuem um valor,
+mas a carta de Ás possui dois valores.
+A estrutura `Values` define duas propriedades para representar isso:
+ 
+- `first`, do tipo `Int`
+- `second`, do tipo `Int?`, ou “opcional `Int`”
 
-- `first`, of type `Int`
-- `second`, of type `Int?`, or “optional `Int`”
+`Rank` também define uma propriedade computada, `values`,
+que retorna uma instância da estrutura `Values`.
+Essa propriedade computada considera a categoria da carta
+e inicializa uma nova instância `Values` com valores apropriados baseados na sua própria categoria.
+Ela usa valores especiais para `jack`, `queen`, `king`, e `ace`. 
+Para as cartas numeradas, ela usa o valor bruto `Int` da categoria.
 
-`Rank` also defines a computed property, `values`,
-which returns an instance of the `Values` structure.
-This computed property considers the rank of the card
-and initializes a new `Values` instance with appropriate values based on its rank.
-It uses special values for `jack`, `queen`, `king`, and `ace`.
-For the numeric cards, it uses the rank's raw `Int` value.
+A própria estrutura `BlackjackCard` possui duas propriedades --- `rank` e `suit`.
+Ela também define uma propriedade computada chamada `description`,
+que usa valores armazenados em `rank` e `suit` para compilar
+uma descrição do nome e valor da carta.
+A propriedade `description` usa ligação opcional para verificar se existe
+um segundo valor a ser exibido, e sendo esse o caso,
+insere detalhes descritivos adicionais para o segundo valor.
 
-The `BlackjackCard` structure itself has two properties --- `rank` and `suit`.
-It also defines a computed property called `description`,
-which uses the values stored in `rank` and `suit` to build
-a description of the name and value of the card.
-The `description` property uses optional binding to check whether there's
-a second value to display, and if so,
-inserts additional description detail for that second value.
-
-Because `BlackjackCard` is a structure with no custom initializers,
-it has an implicit memberwise initializer,
-as described in <doc:Initialization#Memberwise-Initializers-for-Structure-Types>.
-You can use this initializer to initialize a new constant called `theAceOfSpades`:
+Por `BlackjackCard` ser uma estrutura sem inicializadores personalizados,
+ela possui um inicializador de membro implícito,
+como descrito em <doc:Initialization#Memberwise-Initializers-for-Structure-Types>.
+Você pode usar esse inicializador para inicializar uma nova constante chamada `theAceOfSpades`: 
 
 ```swift
 let theAceOfSpades = BlackjackCard(rank: .ace, suit: .spades)
 print("theAceOfSpades: \(theAceOfSpades.description)")
-// Prints "theAceOfSpades: suit is ♠, value is 1 or 11"
+// Prints "theAceOfSpades: naipe é ♠, valor é 1 ou 11"
 ```
 
 
 
 
-Even though `Rank` and `Suit` are nested within `BlackjackCard`,
-their type can be inferred from context,
-and so the initialization of this instance is able to refer to the enumeration cases
-by their case names (`.ace` and `.spades`) alone.
-In the example above, the `description` property correctly reports that
-the Ace of Spades has a value of `1` or `11`.
+Embora `Rank` e `Suit` estejam aninhados em `BlackjackCard`,
+seus tipos podem ser inferidos pelo contexto,
+e então a inicialização dessa instância é capaz de se referir ao caso de enumeração
+apenas pelo seus nomes de caso (`.ace` e `.spades`).
+No exemplo acima, a propriedade `description` corretamente reporta que
+o Ás de Espada possui o valor de `1` ou `11`.
 
 ## Referring to Nested Types
 
