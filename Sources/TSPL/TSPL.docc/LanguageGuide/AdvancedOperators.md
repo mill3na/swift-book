@@ -279,39 +279,34 @@ negative integers remain negative as their value moves closer to zero.
 
 ## Overflow Operators
 
-If you try to insert a number into an integer constant or variable
-that can't hold that value,
-by default Swift reports an error rather than allowing an invalid value to be created.
-This behavior gives extra safety when you work with numbers that are too large or too small.
 
-For example, the `Int16` integer type can hold
-any signed integer between `-32768` and `32767`.
-Trying to set an `Int16` constant or variable to a number outside of this range
-causes an error:
+Se você tentar inserir um número em uma constante ou variável inteira que não pode manter esse valor,
+por padrão o Swift relata um erro em vez de permitir que um valor inválido seja criado.
+Este comportamento oferece segurança extra ao trabalhar com números muito grandes ou muito pequenos.
+
+Por examplo, o tipo inteiro `Int16` pode conter qualquer inteiro assinado entre `-32768` e `32767`.
+Tentando definir uma constante ou variável `Int16` para um número fora desse intervalo causa um erro:
 
 ```swift
 var potentialOverflow = Int16.max
-// potentialOverflow equals 32767, which is the maximum value an Int16 can hold
+// potentialOverflow igual a 32767, que é o valor máximo que um Int16 pode manter
 potentialOverflow += 1
-// this causes an error
+// isso causa um erro
 ```
 
 
 
 
-Providing error handling when values get too large or too small
-gives you much more flexibility when coding for boundary value conditions.
+Fornecendo tratamento de erros quando os valores ficam muito grandes ou muito pequenos oferece muito mais flexibilidade quando codificar para condições de valor limite.
 
-However, when you specifically want an overflow condition
-to truncate the number of available bits,
-you can opt in to this behavior rather than triggering an error.
-Swift provides three arithmetic *overflow operators* that opt in to
-the overflow behavior for integer calculations.
+No entanto, quando você quer especificamente uma condição de overflow para truncar o número de bits disponíveis, você pode optar  por este comportamente em vez de desencadear um erro.
+Swift fornece três *operadores de overflow* aritméticos que optam pelo comportamento de overflow para cálculos inteiros.
+Todos esse operadores começam com um `e` comercial (`&`)
 These operators all begin with an ampersand (`&`):
 
-- Overflow addition (`&+`)
-- Overflow subtraction (`&-`)
-- Overflow multiplication (`&*`)
+- Overflow de adição (`&+`)
+- Overflow de subtração (`&-`)
+- Overflow de multiplicação (`&*`)
 
 ### Value Overflow
 
