@@ -217,7 +217,7 @@ O sinal para o bit `0`siginifica positivo, e o sinal para bit `1` significa nega
 
 Os bits restantes (conhecidos como *bits de valor*) armazenam o valor atual.
 Os números positivos são armazenados exatamente da mesma maneira que os inteiros sem sinal,
-contando mais `0`.
+adicionando o `0` à posição inicial.
 Veja como os bits dentro do `Int8` buscam o número `4`:
 
 
