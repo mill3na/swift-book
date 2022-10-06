@@ -1210,7 +1210,7 @@ No entanto, os operadores `&&` e `||` ainda operam sobre apenas dois valores,
 então, na verdade, são três expressões menores encadeadas.
 O exemplo pode ser lido como:
 
-Se inserimos o código de porta correto e passamos no exame de retina,
+Se inserimos o código de porta correto e passarmos no exame de retina,
 ou se tivermos uma chave de porta válida,
 ou se soubermos a senha de substituição de emergência,
 então permita o acesso.
@@ -1222,7 +1222,7 @@ então a expressão composta geral ainda é avaliada como `true`.
 
 > Note: Os operadores lógicos do Swift `&&` e `||` são associativos à esquerda,
 > significando que expressões compostas com vários operadores lógicos
-> avalie primeiro a subexpressão mais à esquerda.
+> avaliam primeiro a subexpressão mais à esquerda.
 
 ### Explicit Parentheses
 
