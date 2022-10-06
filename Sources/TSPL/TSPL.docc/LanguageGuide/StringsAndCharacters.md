@@ -226,12 +226,9 @@ Here are three more double quotes: """
 
 
 
-## Initializing an Empty String
+## Inicializando Uma String Vazia
 
-To create an empty `String` value as the starting point
-for building a longer string,
-either assign an empty string literal to a variable,
-or initialize a new `String` instance with initializer syntax:
+Para criar uma `String` de valor vazio como ponto de partida para se construir uma string maior, você pode atribuir uma string vazia para uma variável ou inicializar uma nova instâncias de `String` com sintaxe de inicializador:
 
 ```swift
 var emptyString = ""               // empty string literal
@@ -242,8 +239,7 @@ var anotherEmptyString = String()  // initializer syntax
 
 
 
-Find out whether a `String` value is empty
-by checking its Boolean `isEmpty` property:
+Descubra se uma `String` possui valor vazio verificando sua propriedade Booleana `isEmpty`:
 
 ```swift
 if emptyString.isEmpty {
