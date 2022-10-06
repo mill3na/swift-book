@@ -1341,7 +1341,7 @@ and the `throw` statement is described in <doc:ErrorHandling#Propagating-Errors-
 
 A instrução `continue` diz ao _loop_ para parar o que está fazendo
 e recomeçar no início da próxima iteração do _loop_.
-Ela diz "Terminei a atual iteração do _loop_"
+Ela diz "Terminei a atual iteração"
 sem sair completamente do _loop_.
 
 O seguinte exemplo remove todas as vogais e espaços de uma _string_ com letras minúsculas
