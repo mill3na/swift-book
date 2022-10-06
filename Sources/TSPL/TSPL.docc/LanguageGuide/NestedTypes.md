@@ -67,49 +67,9 @@ struct BlackjackCard {
 ```
 
 
-@Comment {
-  - test: `nestedTypes`
-  
-  ```swifttest
-  -> struct BlackjackCard {
-  ---
-        // enumeração Suit aninhada
-        enum Suit: Character {
-           case spades = "♠", hearts = "♡", diamonds = "♢", clubs = "♣"
-        }
-  ---
-        // enumeração Rank aninhada
-        enum Rank: Int {
-           case two = 2, three, four, five, six, seven, eight, nine, ten
-           case jack, queen, king, ace
-           struct Values {
-              let first: Int, second: Int?
-           }
-           var values: Values {
-              switch self {
-                 case .ace:
-                    return Values(first: 1, second: 11)
-                 case .jack, .queen, .king:
-                    return Values(first: 10, second: nil)
-                 default:
-                    return Values(first: self.rawValue, second: nil)
-              }
-           }
-        }
-  ---
-        // propriedades e metodos de BlackjackCard 
-        let rank: Rank, suit: Suit
-        var description: String {
-           var output = "naipe é \(suit.rawValue),"
-           output += " valor é \(rank.values.first)"
-           if let second = rank.values.second {
-              output += " ou \(second)"
-           }
-           return output
-        }
-     }
-  ```
-}
+
+
+
 
 A enumeração `Suit` descreve os quatro naipes comuns em jogos de baralho,
 junto a um valor bruto `Character` para representar seu símbolo.
@@ -154,15 +114,7 @@ print("theAceOfSpades: \(theAceOfSpades.description)")
 ```
 
 
-@Comment {
-  - test: `nestedTypes`
-  
-  ```swifttest
-  -> let theAceOfSpades = BlackjackCard(rank: .ace, suit: .spades)
-  -> print("theAceOfSpades: \(theAceOfSpades.description)")
-  <- theAceOfSpades: naipe é ♠, valor é 1 ou 11
-  ```
-}
+
 
 Embora `Rank` e `Suit` estejam aninhados em `BlackjackCard`,
 seus tipos podem ser inferidos pelo contexto,
@@ -182,27 +134,11 @@ let heartsSymbol = BlackjackCard.Suit.hearts.rawValue
 ```
 
 
-@Comment {
-  - test: `nestedTypes`
-  
-  ```swifttest
-  -> let heartsSymbol = BlackjackCard.Suit.hearts.rawValue
-  /> heartsSymbol is \"\(heartsSymbol)\"
-  </ heartsSymbol is "♡"
-  ```
-}
+
 
 For the example above,
 this enables the names of `Suit`, `Rank`, and `Values` to be kept deliberately short,
 because their names are naturally qualified by the context in which they're defined.
 
 
-@Comment {
-This source file is part of the Swift.org open source project
 
-Copyright (c) 2014 - 2022 Apple Inc. and the Swift project authors
-Licensed under Apache License v2.0 with Runtime Library Exception
-
-See https://swift.org/LICENSE.txt for license information
-See https://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
-}
