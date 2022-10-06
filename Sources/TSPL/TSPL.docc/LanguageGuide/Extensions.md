@@ -42,7 +42,7 @@ A adição de conformidade de protocolo dessa maneira é descrita em <doc:Protoc
 Uma extensão pode ser usada para estender um tipo genérico existente, como descrito em <doc:Generics#Extending-a-Generic-Type>.
 Você também pode estender um tipo genérico para adicionar funcionalidade condicionalmente, conforme descrito em <doc:Generics#Extensions-with-a-Generic-Where-Clause>.
 
-> Nota: Se você definir uma extensão para adicionar uma nova funcionalidade a um tipo existente, a nova funcionalidade estará disponível em todas as instâncias existentes desse tipo, mesmo que tenham sido criados antes da definição da extensão.
+> Nota: Se você definir uma extensão para adicionar uma nova funcionalidade a um tipo existente, a nova funcionalidade estará disponível em todas as instâncias existentes desse tipo, mesmo que tenham sido criadas antes da definição da extensão.
 
 ## Computed Properties
 
