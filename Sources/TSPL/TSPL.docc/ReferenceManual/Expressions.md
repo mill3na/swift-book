@@ -1101,21 +1101,19 @@ tuple-element --> expression | identifier ``:`` expression
 
 ### Wildcard Expression
 
-A *wildcard expression*
-is used to explicitly ignore a value during an assignment.
-For example, in the following assignment
-10 is assigned to `x` and 20 is ignored:
+Uma *wildcard expression*
+é usada para ignorar explicitamente o valor durante uma atribuição. 
+Por exemplo, na seguinte atribuição,
+10 é atribuído a `x` e 20 é ignorado: 
 
 ```swift
 (x, _) = (10, 20)
-// x is 10, and 20 is ignored
+// x é 10, e 20 é ignorado
 ```
 
 
-
-
 ```
-Grammar of a wildcard expression
+Gramática de uma wildcard expression
 
 wildcard-expression --> ``_``
 ```
