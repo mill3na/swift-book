@@ -19,44 +19,30 @@ ou adicionar funcionalidades extras que os tipos em conformidade podem aproveita
 > Nota: As extensões podem adicionar novas funcionalidades a um tipo, mas eles não podem substituir a funcionalidade existente.
 
 
-## Extension Syntax
+## Sintaxe de Extensão
 
-Declare extensions with the `extension` keyword:
+Declare extensões com a palavra-chave `extension`:
 
 ```swift
 extension SomeType {
-   // new functionality to add to SomeType goes here
+   // nova funcionalidade para adicionar a 'SomeType' vai aqui
 }
 ```
 
-
-
-
-An extension can extend an existing type to make it adopt one or more protocols.
-To add protocol conformance,
-you write the protocol names
-the same way as you write them for a class or structure:
+Uma extensão pode estender um tipo existente para que ele adote um ou mais protocolos. Para adicionar conformidade de protocolo, você escreve os nomes dos protocolos da mesma maneira que você os escreve para uma classe ou estrutura:
 
 ```swift
 extension SomeType: SomeProtocol, AnotherProtocol {
-   // implementation of protocol requirements goes here
+   // implementação de requisitos do protocolo vai aqui
 }
 ```
 
+A adição de conformidade de protocolo dessa maneira é descrita em <doc:Protocols#Adding-Protocol-Conformance-with-an-Extension>.
 
+Uma extensão pode ser usada para estender um tipo genérico existente, como descrito em <doc:Generics#Extending-a-Generic-Type>.
+Você também pode estender um tipo genérico para adicionar funcionalidade condicionalmente, conforme descrito em <doc:Generics#Extensions-with-a-Generic-Where-Clause>.
 
-
-Adding protocol conformance in this way is described in
-<doc:Protocols#Adding-Protocol-Conformance-with-an-Extension>.
-
-An extension can be used to extend an existing generic type,
-as described in <doc:Generics#Extending-a-Generic-Type>.
-You can also extend a generic type to conditionally add functionality,
-as described in <doc:Generics#Extensions-with-a-Generic-Where-Clause>.
-
-> Note: If you define an extension to add new functionality to an existing type,
-> the new functionality will be available on all existing instances of that type,
-> even if they were created before the extension was defined.
+> Nota: Se você definir uma extensão para adicionar uma nova funcionalidade a um tipo existente, a nova funcionalidade estará disponível em todas as instâncias existentes desse tipo, mesmo que tenham sido criados antes da definição da extensão.
 
 ## Computed Properties
 
