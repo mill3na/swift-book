@@ -637,15 +637,15 @@ range.contains(-1)  // true
 
 
 
-## Logical Operators
+## Operadores Lógicos
 
-*Logical operators* modify or combine
-the Boolean logic values `true` and `false`.
-Swift supports the three standard logical operators found in C-based languages:
+*Operadores lógicos'* modificam ou combinam
+os valores lógicos Booleanos `true` e `false`.
+O Swift suporta os três operadores lógicos padrão encontrados em linguagens baseadas em C:
 
-- Logical NOT (`!a`)
-- Logical AND (`a && b`)
-- Logical OR (`a || b`)
+- Lógica NÃO (`!a`)
+- Lógica E (`a && b`)
+- Lógica OU (`a || b`)
 
 ### Logical NOT Operator
 O *operador lógico NOT* (`!a`) iverte o valor booleano para que `verdadeiro` vire `falso` e `falso` vire `verdadeiro`. 
@@ -693,14 +693,15 @@ e só permite acesso se ambos os valores forem `true`:
 
 ```swift
 let enteredDoorCode = true
-let passedRetinaScan = false
-if enteredDoorCode && passedRetinaScan {
+let passedRetinaScan  = false
+if enteredDoorCode && passedRetinaScan  {
    print("Welcome!")
 } else {
    print("ACESS DENIED")
 }
 // Prints "ACESS DENIED"
 ```
+
 
 
 
@@ -740,6 +741,7 @@ if hasDoorKey || knowsOverridePassword {
 
 
 
+
 ### Combinando Operadores Lógicos
 
 Você pode combinar vários operadores lógicos para criar expressões compostas mais longas:
@@ -752,8 +754,6 @@ if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
 }
 // Prints "Welcome!"
 ```
-
-
 
 
 Este exemplo usa vários operadores `&&` e `||` para criar uma expressão composta mais longa.
@@ -780,8 +780,8 @@ então a expressão composta geral ainda é avaliada como `true`.
 Às vezes é útil incluir parênteses quando eles não são estritamente necessários,
 para tornar a intenção de uma expressão complexa mais fácil de ler.
 No exemplo de acesso à porta acima,
-é útil adicionar parênteses em torno da primeira parte da expressão composta
-explicitar sua intenção:
+é útil adicionar parênteses em torno da primeira parte da expressão compostas
+para deixar claro sua intenção:
 
 ```swift
 if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword {
