@@ -58,14 +58,3 @@
 ### Histórico de Revisão
 
 - <doc:HistóricoDeRevisão>
-
-
-@Comment {
-Este arquivo de origem faz parte do projeto de código aberto Swift.org
-
-Copyright (c) 2014 - 2022 Apple Inc. e os autores do projeto Swift
-Licenciado pela Apache License v2.0 com Runtime Library Exception
-
-Consulte https://swift.org/LICENSE.txt para obter informações sobre a licença
-Consulte https://swift.org/CONTRIBUTORS.txt para obter a lista de autores do projeto Swift
-}
