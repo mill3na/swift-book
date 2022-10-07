@@ -313,20 +313,20 @@ These operators all begin with an ampersand (`&`):
 - Overflow subtraction (`&-`)
 - Overflow multiplication (`&*`)
 
-### Valor de Estouro
+### Valor de Overflow
 
-Números podem estourar tanto em direções positivas como em negativas.
+Números podem transbordar tanto em direções positivas como em negativas.
 
 Aqui está um exemplo do que acontece quando
 um inteiro sem sinal é permitido estourar um sentido positivo,
-usando um operador de adição de estouro.
+usando um operador de adição de overflow.
 
  ('&+'):
 
 '''swift
 var unsignedOverflow = UInt8.max
-// O estouro sem sinal é igual a 255, que é o valor máximo que UInt8 pode conterunsignedOverflow = unsignedOverflow &+ 1
-// O estouro sem sinal é agora igual a 0.
+// O unsignedOverflow é igual a 255, que é o valor máximo que UInt8 pode conterunsignedOverflow = unsignedOverflow &+ 1
+// Agora, o unsignedOverflow é igual a 0.
 '''
 
 
@@ -335,25 +335,25 @@ var unsignedOverflow = UInt8.max
 
 A variável 'unsignedOverflow' é inicializada com o valor máximo que um 'UInt8' pode conter
 ('255' ou '11111111' em binário).
-É então incrementado por '1' usando o operador de adição de estouro ('&+').
+É então incrementado por '1' usando o operador de adição de overflow('&+').
 Isso empurra sua representação binária um pouco acima do tamanho que um 'UInt8' pode conter,
 fazendo com que ele transborde além de seus limites,
 como mostrado no diagrama abaixo.
 O valor que permanece dentro dos limites do 'UInt8'
-após a adição de estouro é '00000000', ou zero.
+após a adição de overlow é '00000000', ou zero.
 
 ![](overflowAddition)
 
 
 Algo parecido acontece quando
 um inteiro sem sinal é permitido estourar em um sentido negativo.
-Aqui está um exemplo usando um operador de subtração de estouro ('&-'):
+Aqui está um exemplo usando um operador de subtração de overflow ('&-'):
 
 '''swift
 var unsignedOverflow = UInt8.min
-// O estouro sem sinal é igual a 0, que é o valor mínimo que uma UInt8 pode conter
+// O unsignedOverflow é igual a 0, que é o valor mínimo que uma UInt8 pode conter
 unsignedOverflow = unsignedOverflow &- 1
-// O estouro sem sinal agora é igual a 255
+// Agora, o unseignedOverflow é igual a 255
 '''
 
 
@@ -361,23 +361,23 @@ unsignedOverflow = unsignedOverflow &- 1
 
 O valor mínimo que 'UInt8' pode conter é zero,
 ou '00000000' em binário.
-Se você subtrair ‘1’ de ‘00000000’ usando um operador de subtração de estouro ('&-'),
+Se você subtrair ‘1’ de ‘00000000’ usando um operador de subtração de overflow ('&-'),
 o número vai estourar e envolver com ‘11111111’
 ou com ‘255’ em decimal. 
 
 ![](overflowUnsignedSubtraction)
 
 
-O estouro também ocorre para inteiros com sinal.
+O overflow também ocorre para inteiros com sinal.
 Todas as somas e subtrações para inteiros com sinal são executadas de forma bit a bit,
 com o bit de sinal incluído como parte dos números sendo adicionados ou subtraídos,
 conforme descrito em <doc:AdvancedOperators#Bitwise-Left-and-Right-Shift-Operators>.
 
 '''swift
 var signedOverflow = Int8.min
-// O estouro sem sinal é igual a -128, que é o valor mínimo que uma UInt8 pode conter
+// O signedOverflow é igual a -128, que é o valor mínimo que uma UInt8 pode conter
 signedOverflow = signedOverflow &- 1
-// O estouro sem sinal agora é igual a 127
+// O signedOverflow agora é igual a 127
 '''
 
 
@@ -385,7 +385,7 @@ signedOverflow = signedOverflow &- 1
 
 O valor mínimo que um ‘Int8’ pode conter é ‘-128’
 ou ‘10000000’ em binário,
-Subtraindo ‘1’ de seu número binário com o operador de estouro
+Subtraindo ‘1’ de seu número binário com o operador de overflow
 resulta no valor binário ‘01111111’,
 que alterna o bit de sinal e resulta em positivo ‘127’
 o valor positivo máximo que um ‘Int8’ pode conter.
@@ -394,9 +394,9 @@ o valor positivo máximo que um ‘Int8’ pode conter.
 
 
 Para inteiros com e sem sinal,
-o estouro na direção positiva
+o overflow na direção positiva
 envolve do valor inteiro válido máximo de volta ao mínimo,
-e o estouro na direção negativa
+e o overflow na direção negativa
 envolve do valor mínimo ao máximo.
 
 ## Precedence and Associativity
