@@ -1038,25 +1038,25 @@ range.contains(-1)  // true
   ```
 }
 
-## Logical Operators
+## Operadores Lógicos
 
-*Logical operators* modify or combine
-the Boolean logic values `true` and `false`.
-Swift supports the three standard logical operators found in C-based languages:
+*Operadores lógicos'* modificam ou combinam
+os valores lógicos Booleanos `true` e `false`.
+O Swift suporta os três operadores lógicos padrão encontrados em linguagens baseadas em C:
 
-- Logical NOT (`!a`)
-- Logical AND (`a && b`)
-- Logical OR (`a || b`)
+- Lógica NÃO (`!a`)
+- Lógica E (`a && b`)
+- Lógica OU (`a || b`)
 
-### Logical NOT Operator
+### Operador Lógico NÃO
 
-The *logical NOT operator* (`!a`) inverts a Boolean value so that `true` becomes `false`,
-and `false` becomes `true`.
+O *operador lógico NÃO* (`!a`) inverte o valor booleano então o `true` passa a ser `false`,
+e o `false` passa a ser `true`.
 
-The logical NOT operator is a prefix operator,
-and appears immediately before the value it operates on,
-without any white space.
-It can be read as “not `a`”, as seen in the following example:
+O operador lógico NÃO é um operador de prefixo,,
+e aparece imediatamente antes do valor em que opera,
+sem nenhum espaço em branco..
+Ele pode ser lido como “not `a`”, como visto no exemplo a seguir::
 
 ```swift
 let allowedEntry = false
@@ -1079,34 +1079,34 @@ if !allowedEntry {
   ```
 }
 
-The phrase `if !allowedEntry` can be read as “if not allowed entry.”
-The subsequent line is only executed if “not allowed entry” is true;
-that is, if `allowedEntry` is `false`.
+A frase `if !allowedEntry` pode ser lida como “entrada não permitida.”
+A linha subsequênte só será executada if “entrada não permitida” for true;
+isto é, if `allowedEntry` é `false`.
 
-As in this example,
-careful choice of Boolean constant and variable names
-can help to keep code readable and concise,
-while avoiding double negatives or confusing logic statements.
+Como neste exemplo,
+escolher cuidadosamente o nome de variáveis e constantes booleanas
+pode ajudar a manter o código legível e conciso,
+evitando duplas negativas ou declarações lógicas confusas.
 
-### Logical AND Operator
+### Operador Lógico E
 
-The *logical AND operator* (`a && b`) creates logical expressions
-where both values must be `true` for the overall expression to also be `true`.
+O *Operador lógico E* (`a && b`) cria expressões lógicas
+onde ambos os valores devem ser `true` para que a expressão geral também seja `true`.
 
-If either value is `false`,
-the overall expression will also be `false`.
-In fact, if the *first* value is `false`,
-the second value won't even be evaluated,
-because it can't possibly make the overall expression equate to `true`.
-This is known as *short-circuit evaluation*.
+Se um dos valores for`false`,
+a expressão toda também será `false`.
+Na verdade, se o *primeiro* valor for `false`,
+o segundo valor não será avalidado,
+por que é impossível que a expressão geral seja`true`.
+Isso é conhecido como *short-circuit evaluation*.
 
-This example considers two `Bool` values
-and only allows access if both values are `true`:
+Esse exemplo considera dois valores `Bool`
+e só permite acesso se todos os valores forem `true`:
 
 ```swift
 let enteredDoorCode = true
-let passedRetinaScan = false
-if enteredDoorCode && passedRetinaScan {
+let passedRetinaScan  = false
+if enteredDoorCode && passedRetinaScan  {
    print("Welcome!")
 } else {
    print("ACCESS DENIED")
@@ -1130,26 +1130,26 @@ if enteredDoorCode && passedRetinaScan {
   ```
 }
 
-### Logical OR Operator
+### Operador Lógico OU
 
-The *logical OR operator*
+O *Operador logico OU*
 (`a || b`) is an infix operator made from two adjacent pipe characters.
-You use it to create logical expressions in which
-only *one* of the two values has to be `true`
-for the overall expression to be `true`.
+Você o usa para criar expressões lógicas nas quais
+só *um* dos dois valores tem que ser `true`
+para que toda a expressão seja`true`.
 
-Like the Logical AND operator above,
-the Logical OR operator uses short-circuit evaluation to consider its expressions.
-If the left side of a Logical OR expression is `true`,
-the right side isn't evaluated,
-because it can't change the outcome of the overall expression.
+Como o operador lógico E acima,
+O operador lógico OU usa avaliação de short-circuit para considerar suas expressões.
+Se o lado esquerdo de uma expressão lógica OU for `true`,
+o lado direito não é avaliado,
+por que isso não altera o resultado.
 
-In the example below,
-the first `Bool` value (`hasDoorKey`) is `false`,
-but the second value (`knowsOverridePassword`) is `true`.
-Because one value is `true`,
-the overall expression also evaluates to `true`,
-and access is allowed:
+No exemplo abaixo,,
+o primeiro valor `Bool` (`hasDoorKey`) é `false`,
+mas o segundo valor (`knowsOverridePassword`) é `true`.
+por que um dos valores é `true`,
+a expressão toda também é considerada `true`,
+e o acesso é permitido:
 
 ```swift
 let hasDoorKey = false
@@ -1178,9 +1178,9 @@ if hasDoorKey || knowsOverridePassword {
   ```
 }
 
-### Combining Logical Operators
+### Combinando Operadores Lógicos
 
-You can combine multiple logical operators to create longer compound expressions:
+Você pode combinar multiplos operadores lógicos para criar expressões compostas mais longas:
 
 ```swift
 if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
@@ -1205,32 +1205,32 @@ if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
   ```
 }
 
-This example uses multiple `&&` and `||` operators to create a longer compound expression.
-However, the `&&` and `||` operators still operate on only two values,
-so this is actually three smaller expressions chained together.
-The example can be read as:
+Esse exemplo usa multiplos operadores `&&` and `||` para criar expressões compostas mais longas.
+No entanto, os operadores `&&` e `||` apenas operam em dois valores,
+então na verdade se tornam três expressões menores encadeadas.
+O exemplo pode ser lido como:
 
-If we've entered the correct door code and passed the retina scan,
-or if we have a valid door key,
-or if we know the emergency override password,
-then allow access.
+Se inserirmos o código correto da porta e passarmos pelo scan da retina,
+ou se tivermos o código válido da porta,
+ou se soubermos a senha de substituição de emergência,,
+então permita o acesso.
 
-Based on the values of `enteredDoorCode`, `passedRetinaScan`, and `hasDoorKey`,
-the first two subexpressions are `false`.
-However, the emergency override password is known,
-so the overall compound expression still evaluates to `true`.
+Com base nos valores de `enteredDoorCode`, `passedRetinaScan`, e `hasDoorKey`,
+As primeiras duas expressões são `false`.
+No entando, a senha de substituição de emergência é conhecida,
+então toda a expressão composta ainda é avaliada como `true`.
 
-> Note: The Swift logical operators `&&` and `||` are left-associative,
-> meaning that compound expressions with multiple logical operators
-> evaluate the leftmost subexpression first.
+> Note: Os operadores lógicos de Swift `&&` e `||` são acossiativos à esquerda,
+> significando que expressões compostas com vários operadores lógicos
+> avalie primeiro a subexpressão mais à esquerda.
 
 ### Explicit Parentheses
 
-It's sometimes useful to include parentheses when they're not strictly needed,
-to make the intention of a complex expression easier to read.
-In the door access example above,
-it's useful to add parentheses around the first part of the compound expression
-to make its intent explicit:
+Às vezes é útil incluir parênteses quando eles não são estritamente necessários,
+para tornar a intenção de uma expressão complexa mais fácil de ler.
+No exemplo de acesso à porta acima,
+é útil adicionar parênteses em torno da primeira parte da expressão composta
+para deixar claro sua intenção:
 
 ```swift
 if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword {
@@ -1255,12 +1255,12 @@ if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword 
   ```
 }
 
-The parentheses make it clear that the first two values
-are considered as part of a separate possible state in the overall logic.
-The output of the compound expression doesn't change,
-but the overall intention is clearer to the reader.
-Readability is always preferred over brevity;
-use parentheses where they help to make your intentions clear.
+Os parênteses deixam claro que os dois primeiros valores
+são considerados como parte de um estado possível separado na lógica geral.
+A saída da expressão composta não muda,
+mas a intenção geral é mais clara para o leitor.
+A legibilidade é sempre preferível à brevidade;
+use parênteses para ajudar a tornar suas intenções claras.
 
 
 @Comment {
