@@ -1093,7 +1093,7 @@ Se um operador infixo personalizado não for explicitamente colocado em um grupo
 do que a precedência do operador condicional ternário.
 
 O exemplo a seguir define um novo operador infixo personalizado chamado `+-`,
-que pertence ao grupo de precedência `AdditionPrecedence`:
+que pertence ao grupo de precedência `_AdditionPrecedence_`:
 
 ```swift
 infix operator +-: AdditionPrecedence
