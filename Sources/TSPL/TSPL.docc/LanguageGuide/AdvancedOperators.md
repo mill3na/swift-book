@@ -1132,7 +1132,7 @@ e subtrai o valor `y` do segundo vetor do primeiro.
 Porque é essencialmente um operador "aditivo",
 foi dado o mesmo grupo de precedência
 dos operadores infixos aditivos como `+` e `-`.
-Para obter informações sobre os operadores fornecidos pela biblioteca padrão Swift,
+Para obter informações sobre os operadores fornecidos pela biblioteca padrão do Swift,
 incluindo uma lista completa dos grupos de precedência do operador e configurações de associatividade,
 consulte  [Operator Declarations](https://developer.apple.com/documentation/swift/operator_declarations).
 Para obter mais informações sobre grupos de precedência e para ver a sintaxe de
