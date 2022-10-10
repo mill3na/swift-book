@@ -1089,7 +1089,7 @@ Consulte <doc:AdvancedOperators#Precedence-and-Associativity> para obter uma exp
 como essas características afetam a interação de um operador infixo
 com outros operadores infixos.
 
-Um operador infixo personalizado que não é colocado explicitamente em um grupo de precedência recebe um grupo de precedência padrão com uma precedência imediatamente maior
+Se um operador infixo personalizado não for explicitamente colocado em um grupo de precedência, lhe é atribuído um grupo de precedência padrão com uma precedência imediatamente maior
 do que a precedência do operador condicional ternário.
 
 O exemplo a seguir define um novo operador infixo personalizado chamado `+-`,
