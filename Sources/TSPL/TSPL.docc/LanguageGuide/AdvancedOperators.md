@@ -1105,7 +1105,7 @@ extension Vector2D {
 let firstVector = Vector2D(x: 1.0, y: 2.0)
 let secondVector = Vector2D(x: 3.0, y: 4.0)
 let plusMinusVector = firstVector +- secondVector
-// 'plusMinusVector' é uma instância Vector2D com valores de (4.0, -2.0)
+// 'plusMinusVector' é uma instância de Vector2D com valores de (4.0, -2.0)
 ```
 
 
